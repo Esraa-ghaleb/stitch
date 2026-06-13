@@ -1,0 +1,572 @@
+<!DOCTYPE html><html class="light" dir="ltr" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Services Hub - Stitch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e3e1",
+                        "outline-variant": "#d0c4bb",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#6b5c4c",
+                        "on-surface": "#1a1c1b",
+                        "surface-container-high": "#e8e8e6",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f4f4f2",
+                        "on-tertiary-fixed-variant": "#4e4541",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "inverse-on-surface": "#f1f1ef",
+                        "primary": "#6b5c4c",
+                        "primary-container": "#d9c5b2",
+                        "on-tertiary-container": "#5c524e",
+                        "surface-bright": "#f9f9f7",
+                        "surface": "#f9f9f7",
+                        "background": "#f9f9f7",
+                        "surface-container-highest": "#e2e3e1",
+                        "tertiary-fixed-dim": "#d2c4be",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4d453e",
+                        "inverse-surface": "#2f3130",
+                        "on-primary-container": "#605142",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "outline": "#7f756d",
+                        "primary-fixed": "#f4dfcb",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#524436",
+                        "on-tertiary-fixed": "#211a17",
+                        "tertiary-container": "#d4c6c0",
+                        "secondary": "#645d53",
+                        "on-secondary-fixed": "#1f1b13",
+                        "tertiary-fixed": "#eedfda",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#686257",
+                        "on-primary-fixed": "#241a0e",
+                        "surface-container": "#eeeeec",
+                        "secondary-fixed": "#ebe1d4",
+                        "inverse-primary": "#d7c3b0",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#675c58",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "secondary-container": "#e8ded1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "24px",
+                        "container-padding": "40px",
+                        "stack-gap": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-xl": ["Bodoni Moda"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Bodoni Moda"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 197, 178, 0.3);
+        }
+        
+        .premium-shadow {
+            box-shadow: 0 40px 40px -10px rgba(107, 92, 76, 0.05), 0 10px 15px -3px rgba(107, 92, 76, 0.02);
+        }
+        
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 50px 50px -15px rgba(107, 92, 76, 0.08), 0 20px 25px -5px rgba(107, 92, 76, 0.04);
+        }
+
+        .img-zoom-container {
+            overflow: hidden;
+        }
+
+        .img-zoom {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .img-zoom-container:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        [dir="rtl"] .ltr-only { display: none; }
+        [dir="ltr"] .rtl-only { display: block; }
+        [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+        
+        .lang-switch {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Arabic Font Override */
+        html[lang="ar"] {
+            font-family: 'Tajawal', sans-serif !important;
+        }
+        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6, 
+        html[lang="ar"] .font-headline-lg-mobile, html[lang="ar"] .font-display-xl, html[lang="ar"] .font-headline-lg, html[lang="ar"] .font-headline-md,
+        html[lang="ar"] .font-body-lg, html[lang="ar"] .font-body-md, html[lang="ar"] .font-label-sm {
+            font-family: 'Tajawal', sans-serif !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl shadow-[0_40px_40px_-10px_rgba(107,92,76,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-6 md:px-10 py-4 md:py-6 max-w-[1440px] mx-auto">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md text-on-surface dark:text-surface-bright tracking-tight" href="#">Stitch</a>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-8 lg:space-x-12 rtl:space-x-reverse"><a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="nav_home" href="#">Home</a><a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="nav_about" href="#">About</a><div class="relative group"><button class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold border-b-2 border-primary-container pb-1 transition-colors duration-300 flex items-center gap-1"><span data-i18n="nav_services" class="">Services Hub</span><span class="material-symbols-outlined text-sm">expand_more</span></button><div class="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-4 w-48 bg-surface-container-lowest shadow-[0_20px_40px_-10px_rgba(107,92,76,0.1)] rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-outline-variant/30 z-50 overflow-hidden"><a class="block px-5 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors" data-i18n="cat_face" href="#">Face</a><a class="block px-5 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors" data-i18n="cat_hair" href="#">Hair</a><a class="block px-5 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors" data-i18n="cat_body" href="#">Body</a><a class="block px-5 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors" data-i18n="cat_accessories" href="#">Accessories</a></div></div><a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="nav_booking" href="#">Booking</a><a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="nav_contact" href="#">Contact</a></div>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-4 md:space-x-6 rtl:space-x-reverse text-primary dark:text-primary-fixed-dim">
+<button class="hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">shopping_cart</span>
+</button>
+<button class="lang-switch hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 p-2 flex items-center gap-1 font-label-sm text-label-sm uppercase" id="langToggle">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">language</span>
+<span id="currentLang" class="">EN</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden hover:text-primary transition-all duration-300 p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px] md:pt-[120px]">
+<!-- Hero Section -->
+<section class="relative min-h-[614px] md:min-h-[819px] flex items-center justify-center px-4 overflow-hidden mb-section-gap">
+<!-- Background Image with Parallax effect -->
+<div class="absolute inset-0 z-0">
+<img alt="Luxury Beauty Background" class="w-full h-full object-cover object-center opacity-80" data-alt="A minimalist, high-end editorial shot of abstract beauty textures. Soft, ethereal lighting creating a dreamy, premium atmosphere with warm neutral tones of champagne and soft peach. The composition is clean, modern, and embodies luxury minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFrxI-4jAHcisglKd9WpbrK7Rk2VmjzV7IyoUXFCS9RE1i-ayhFNO0VVMndX1dpbLKVZ3q6Atf0-sICnkuL33VDmgUBWohcQ0G62QCXOSVmlt2bda9-XwqZq09oDZC2rPh5bEAuDc65CYUAYCm1elSVAIv6CRLIjjgNzejk9lqKQfyPeZfDLlbrMH4VHfFldmuG-DChubfFwZVNuZMIk33IoX5UnXY1N1AjRSsUo0PZiZU7bURebkuto4SJEzU-nsGgjguWq_zwRlw">
+<!-- Soft gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface/30 via-surface/10 to-background"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 text-center max-w-4xl mx-auto px-container-padding fade-in-section is-visible">
+<p class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary mb-6" data-i18n="hero_subtitle">Curated Elegance</p>
+<h1 class="font-headline-lg-mobile md:font-display-xl text-headline-lg-mobile md:text-display-xl text-on-surface mb-8 tracking-tight" data-i18n="hero_title">
+                    Luxury Beauty Collection
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10" data-i18n="hero_desc">
+                    Discover our meticulously curated selection of premium skincare, haircare, and body essentials designed to elevate your daily ritual.
+                </p>
+<button class="bg-on-surface text-surface font-label-sm text-label-sm uppercase tracking-widest px-8 py-4 rounded-full hover:bg-primary transition-colors duration-300">
+<span data-i18n="hero_cta" class="">Explore Collection</span>
+</button>
+</div>
+</section>
+<!-- Category Cards Section (Bento-ish Layout) -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-10 mb-section-gap fade-in-section is-visible">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface" data-i18n="nav_services">Services Hub</h2>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-primary hover:text-on-surface transition-colors border-b border-primary-container pb-1 hidden md:block" data-i18n="view_all" href="#">View All Categories</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-gap">
+<!-- Face -->
+<div class="group relative h-[400px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer img-zoom-container hover-lift premium-shadow lg:col-span-2">
+<img alt="Face Care" class="absolute inset-0 w-full h-full object-cover img-zoom" data-alt="Close up of a luxurious glass skincare serum bottle surrounded by soft, flowing silk fabric in a pale champagne color. The lighting is soft and directional, highlighting the premium quality of the glass and the glowing liquid inside." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcOvKxeO-Gquwi00OjtYOWGSgPim6LEi0noXV6lxAgI2tW7JaQfI5APVSlzDzD0oeZVWSEYMwU6uIPWK5C-KfKvuVvlLtHdqq8Z5TYPgokzdjiDFJsDDgMNpy3ptl7Ag4roorhjIRGDrcoeYoSg8d_29INp4cogHCUayrx1R2PGbf3QQ6ZE6rB53mKT5sjqLP7RSuk0mvGY3amrz-zayYcwZO86NhfLmaiKobLe9BumPZdKhsAipLvnc9GrsDJEQRJpiXuPmQ4iRcKM9k">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2" data-i18n="cat_face">Face</h3>
+<p class="font-body-md text-body-md text-on-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0" data-i18n="cat_face_desc">Rejuvenating serums and moisturizers.</p>
+</div>
+</div>
+<!-- Hair -->
+<div class="group relative h-[400px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer img-zoom-container hover-lift premium-shadow lg:col-span-1">
+<img alt="Hair Care" class="absolute inset-0 w-full h-full object-cover img-zoom" data-alt="Minimalist layout of high-end haircare products, including a sleek matte pump bottle and a styling comb, resting on a textured stone surface. Warm, natural sunlight creates soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJZZW92PlyXF3FIwNHC_EpUBIfJUt9PUeI2lW5zcfjbxXr-Z0i-O_Lx-7EGnD43cFD4hc_sznyMaMmm-9LRp1kZrkUqW3skzJM3TqIF8KAvwffI384HKDrwdIRb3yZpCfPrlCnXzU2XSMrvdF9xs6Usy67lPk0ZP0qR4Um6ytBZur9wnCdbnOypncHa2yq982RKO13z-esXipZDdcM2ZjgKLGniFs62Ht1KAoDj_dCji0p8QBzhRmH0W8vHj5kuawWrK8QCpHzTgiIvY0">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2" data-i18n="cat_hair">Hair</h3>
+<div class="h-[2px] w-0 bg-surface group-hover:w-12 transition-all duration-300"></div>
+</div>
+</div>
+<!-- Body -->
+<div class="group relative h-[400px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer img-zoom-container hover-lift premium-shadow lg:col-span-1">
+<img alt="Body Care" class="absolute inset-0 w-full h-full object-cover img-zoom" data-alt="A jar of rich body cream placed next to a natural sea sponge on a clean, off-white marble background. The aesthetic is clean, spa-like, and profoundly calming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCndnaDQ1hxnOTtvPpDZldHvxfSySk0mT8abxSXcalS7H_5IiIso2PJF5up6z5RUQ1bTyf4ayGRck4iEw2rPCBfU5S3-AhJr9XKanhf8Z8ttNCauSzJZs564yxnrU_HFocRoEyU5xABMN_KeBUEuU8eQj53W90v4Ksqtf6xNa1AZLmCYkiSGqbiiwp2y3fgJGreWFYHD0C4CYUAbPC1Md0lXjR9M8TyUfqqlkjyOFEFrJHokCfqNFCA4sS4NO0FQAETcoc1lwiMKFjh-vI">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2" data-i18n="cat_body">Body</h3>
+<div class="h-[2px] w-0 bg-surface group-hover:w-12 transition-all duration-300"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid Section -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-10 mb-section-gap fade-in-section is-visible">
+<!-- Filter & Sort Bar (Minimalist) -->
+<div class="flex flex-col md:flex-row justify-between items-center border-b border-outline-variant/30 pb-6 mb-12 gap-6">
+<!-- Filters -->
+<div class="flex space-x-6 md:space-x-8 rtl:space-x-reverse overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface border-b border-on-surface pb-1 whitespace-nowrap" data-i18n="filter_all">All</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap" data-i18n="cat_face">Face</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap" data-i18n="cat_hair">Hair</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap" data-i18n="cat_body">Body</button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap" data-i18n="cat_accessories">Accessories</button>
+</div>
+<!-- Sort -->
+<div class="flex items-center gap-2 self-end md:self-auto">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant" data-i18n="sort_by">Sort By:</span>
+<select class="bg-transparent border-none font-body-md text-body-md text-on-surface focus:ring-0 cursor-pointer py-0 pl-2 pr-8">
+<option data-i18n="sort_newest" value="newest">Newest</option>
+<option data-i18n="sort_price_low" value="price_low">Price: Low to High</option>
+<option data-i18n="sort_price_high" value="price_high">Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-grid-gutter gap-y-[80px]">
+<!-- Product Card 1 -->
+<div class="group flex flex-col">
+<div class="relative bg-surface-container-low rounded-xl aspect-[3/4] mb-6 overflow-hidden img-zoom-container cursor-pointer">
+<!-- Badge -->
+<div class="absolute top-4 left-4 z-10 bg-primary text-on-primary font-label-sm text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Botanical</div>
+<!-- Quick Add -->
+<div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<img alt="Luminous Serum" class="w-full h-full object-cover img-zoom" data-alt="Editorial beauty model photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_b8nWuUPL3HExIhAI9ezwAE0D3mzvCr0zb2FFEnLdF-KfEvm0KOLjzDnBVVbJGPhXnJYu7HKXsJWp-Nixq0-b9ijJbdeRJXbc2kePWVqTQZFGfA_2QCEim_N5-iKboTlCui1OzXM7zx1O6urXUIbIzcUTw8O1XEjRG1aEcb6qiNhjWC4uRVn-glpAwiktwHq4qYwv5FqStz-aLMqUnF2zhyB3ErFtBdLNGnCRA6CBWiMiqWH8RTtHAa4TWV0UmJXnQMp-yhOrGMtq">
+<!-- Hover Action -->
+<div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+<button class="w-full bg-on-surface text-surface font-label-sm text-label-sm uppercase tracking-widest py-3 rounded-lg hover:bg-primary transition-colors">
+<span data-i18n="add_to_cart" class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<!-- Rating -->
+<div class="flex items-center gap-1 mb-2 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star_half</span>
+<span class="font-body-md text-[12px] text-on-surface-variant ml-1">(124)</span>
+</div>
+<h4 class="font-headline-md text-[20px] leading-tight text-on-surface mb-1" data-i18n="prod_1_title">Luminous Renewal Serum</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3 flex-grow line-clamp-2" data-i18n="prod_1_desc">A potent blend of botanical extracts to restore youthful radiance.</p>
+<p class="font-body-lg text-body-lg text-on-surface">60 Mins | $185.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col">
+<div class="relative bg-surface-container-low rounded-xl aspect-[3/4] mb-6 overflow-hidden img-zoom-container cursor-pointer">
+<div class="absolute top-4 left-4 z-10 bg-primary text-on-primary font-label-sm text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Laser</div>
+<div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<img alt="Restorative Night Cream" class="w-full h-full object-cover img-zoom" data-alt="Editorial beauty model photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrMcsEmPkQOBN4ixmUuSHaoAPmCDx6_6OozWWq5GMqRNA58oYas-EzSwAXvb2MWmDrmr6xdrcpva1uvAAqYhkPYxL_KVmZfkIxS59sc-OM1rQEIHMBwNI4Xt7eE5vp-rmt1Kn6tBrYsoCCyO6-TwDsm7ipt6GAp-37NZj3BiTl3Cmcnhvwl8oJaTV8rSTEkz7AZfu8B3MTTyu6dQGb6kkh2dKGtL2CJOiEtfAfGPCmvnMuAB24QcVuh8wfDMfJWwGoiXC6GY4xcX-5">
+<div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+<button class="w-full bg-on-surface text-surface font-label-sm text-label-sm uppercase tracking-widest py-3 rounded-lg hover:bg-primary transition-colors">
+<span data-i18n="add_to_cart" class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-body-md text-[12px] text-on-surface-variant ml-1">(89)</span>
+</div>
+<h4 class="font-headline-md text-[20px] leading-tight text-on-surface mb-1" data-i18n="prod_2_title">Restorative Night Cream</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3 flex-grow line-clamp-2" data-i18n="prod_2_desc">Deep hydration and cellular repair while you sleep.</p>
+<p class="font-body-lg text-body-lg text-on-surface">45 Mins | $210.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col">
+<div class="relative bg-surface-container-low rounded-xl aspect-[3/4] mb-6 overflow-hidden img-zoom-container cursor-pointer">
+<div class="absolute top-4 left-4 z-10 bg-primary text-on-primary font-label-sm text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Holistic</div>
+<div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<img alt="High-end luxury beauty editorial photography of a premium Botanical Body Oil" class="w-full h-full object-cover img-zoom" data-alt="High-end luxury beauty editorial photography of a premium Botanical Body Oil. A close-up of a stunning young woman with radiant, glowing, dewy skin holding a minimalist clear glass oil bottle labeled STITCH." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx-IKFKQ6vGB1NwfUPwam8nLIMYGhd4r0ZRgP4Yt7DCcbJ57II80SXm5ZorLrW4E5n6LwBbraBYpLNuKQF1rSoWMoMUteClBlOR3jdPp8nmwv4FQhM0uEtmq9QYwFZLwocE0OW8bDZkxNa_ZDWhu3o5kKawuypwWyXmfTY2DkbZ7qIgLZwa0OJXFHAuoYLX74JyBae_EPfP2A7BotwGcRDPtoTIaiG1tanFjgAIxtmfag9udlTLZnpNGLYtnpUyyek5ytr7p_fmQY2">
+<div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+<button class="w-full bg-on-surface text-surface font-label-sm text-label-sm uppercase tracking-widest py-3 rounded-lg hover:bg-primary transition-colors">
+<span data-i18n="add_to_cart" class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="font-body-md text-[12px] text-on-surface-variant ml-1">(215)</span>
+</div>
+<h4 class="font-headline-md text-[20px] leading-tight text-on-surface mb-1" data-i18n="prod_3_title">Botanical Body Oil</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3 flex-grow line-clamp-2" data-i18n="prod_3_desc">Nourishing essential oils for an all-over healthy glow.</p>
+<p class="font-body-lg text-body-lg text-on-surface">90 Mins | $85.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col">
+<div class="relative bg-surface-container-low rounded-xl aspect-[3/4] mb-6 overflow-hidden img-zoom-container cursor-pointer">
+<div class="absolute top-4 left-4 z-10 bg-primary text-on-primary font-label-sm text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Purifying</div>
+<div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<img alt="Purifying Clay Mask" class="w-full h-full object-cover img-zoom" data-alt="Editorial beauty model photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4i7r7qLPvAtVkzOszbYpxT81k9yURCEu9z24V3iwOHe1cMI_mQ0CVag31G4ydWiuzS1F9RpFiw0EBRXjKqNuRzuy-ugunm_eAjEpMTviml5NaBwXiSlzvJPBLOZonEx99DoAfdKgt92g63UZOcr3bf9r15GCtCdUYhgziYVPDjI5DN7Pw0w9zWvA-HGL8qACIM-YJ39YDTqpna_nqj_CvmYcg4Xd3EKGQao3icMeK97mwCfi_qixPosgS_jXWpAEJIT16T-VTu83U">
+<div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+<button class="w-full bg-on-surface text-surface font-label-sm text-label-sm uppercase tracking-widest py-3 rounded-lg hover:bg-primary transition-colors">
+<span data-i18n="add_to_cart" class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star_half</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="font-body-md text-[12px] text-on-surface-variant ml-1">(62)</span>
+</div>
+<h4 class="font-headline-md text-[20px] leading-tight text-on-surface mb-1" data-i18n="prod_4_title">Purifying Clay Mask</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3 flex-grow line-clamp-2" data-i18n="prod_4_desc">Detoxifying French green clay for clear, refined pores.</p>
+<p class="font-body-lg text-body-lg text-on-surface">30 Mins | $65.00</p>
+</div>
+</div>
+</div>
+<!-- Pagination (Minimal) -->
+<div class="mt-20 flex justify-center items-center space-x-4 rtl:space-x-reverse">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined rtl-flip">chevron_left</span>
+</button>
+<span class="font-body-md text-body-md text-on-surface">1 / 4</span>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined rtl-flip">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-on-primary-fixed w-full py-20 px-10 border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap max-w-[1440px] mx-auto items-center">
+<div class="font-headline-md text-headline-md text-on-surface text-center md:text-left rtl:md:text-right mb-6 md:mb-0">Stitch</div>
+<div class="flex flex-wrap justify-center gap-6 font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity">
+<a class="hover:text-primary transition-colors" data-i18n="footer_privacy" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" data-i18n="footer_terms" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" data-i18n="footer_faq" href="#">FAQ</a>
+<a class="hover:text-primary transition-colors" data-i18n="footer_careers" href="#">Careers</a>
+</div>
+<div class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim text-center md:text-right rtl:md:text-left mt-6 md:mt-0" data-i18n="footer_copyright">
+                © 2024 Stitch. All rights reserved.
+            </div>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Language / RTL Toggling Logic
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_products: "Products",
+                nav_booking: "Booking",
+                nav_about: "About",
+                nav_contact: "Contact",
+                nav_services: "Services Hub",
+                hero_subtitle: "Curated Elegance",
+                hero_title: "Luxury Beauty Collection",
+                hero_desc: "Discover our meticulously curated selection of premium skincare, haircare, and body essentials designed to elevate your daily ritual.",
+                hero_cta: "Explore Collection",
+                shop_categories: "Shop by Category",
+                view_all: "View All Categories",
+                cat_face: "Face",
+                cat_face_desc: "Rejuvenating serums and moisturizers.",
+                cat_hair: "Hair",
+                cat_body: "Body",
+                cat_accessories: "Accessories",
+                filter_all: "All",
+                sort_by: "Sort By:",
+                sort_newest: "Newest",
+                sort_price_low: "Price: Low to High",
+                sort_price_high: "Price: High to Low",
+                badge_new: "New",
+                badge_bestseller: "Bestseller",
+                add_to_cart: "Add to Cart",
+                prod_1_title: "Luminous Renewal Serum",
+                prod_1_desc: "A potent blend of botanical extracts to restore youthful radiance.",
+                prod_2_title: "Restorative Night Cream",
+                prod_2_desc: "Deep hydration and cellular repair while you sleep.",
+                prod_3_title: "Botanical Body Oil",
+                prod_3_desc: "Nourishing essential oils for an all-over healthy glow.",
+                prod_4_title: "Purifying Clay Mask",
+                prod_4_desc: "Detoxifying French green clay for clear, refined pores.",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_faq: "FAQ",
+                footer_careers: "Careers",
+                footer_copyright: "© 2024 Stitch. All rights reserved."
+            },
+            ar: {
+                nav_home: "الرئيسية",
+                nav_products: "المنتجات",
+                nav_booking: "الحجز",
+                nav_about: "حول",
+                nav_contact: "اتصل بنا",
+                nav_services: "مركز الخدمات",
+                hero_subtitle: "أناقة منتقاة بعناية",
+                hero_title: "مجموعة الجمال الفاخرة",
+                hero_desc: "اكتشف مجموعتنا المنتقاة بدقة من أساسيات العناية بالبشرة والشعر والجسم الممتازة المصممة للارتقاء بروتينك اليومي.",
+                hero_cta: "استكشف المجموعة",
+                shop_categories: "تسوق حسب الفئة",
+                view_all: "عرض جميع الفئات",
+                cat_face: "الوجه",
+                cat_face_desc: "أمصال ومرطبات مجددة للشباب.",
+                cat_hair: "الشعر",
+                cat_body: "الجسم",
+                cat_accessories: "إكسسوارات",
+                filter_all: "الكل",
+                sort_by: "ترتيب حسب:",
+                sort_newest: "الأحدث",
+                sort_price_low: "السعر: من الأقل للأعلى",
+                sort_price_high: "السعر: من الأعلى للأقل",
+                badge_new: "جديد",
+                badge_bestseller: "الأكثر مبيعاً",
+                add_to_cart: "أضف للسلة",
+                prod_1_title: "مصل التجديد المضيء",
+                prod_1_desc: "مزيج قوي من المستخلصات النباتية لاستعادة إشراقة الشباب.",
+                prod_2_title: "كريم الليل المجدد",
+                prod_2_desc: "ترطيب عميق وإصلاح خلوي أثناء النوم.",
+                prod_3_title: "زيت الجسم النباتي",
+                prod_3_desc: "زيوت أساسية مغذية لتوهج صحي شامل.",
+                prod_4_title: "قناع الطين المنقي",
+                prod_4_desc: "طين أخضر فرنسي مزيل للسموم لمسام نقية وصافية.",
+                footer_privacy: "سياسة الخصوصية",
+                footer_terms: "شروط الخدمة",
+                footer_faq: "الأسئلة الشائعة",
+                footer_careers: "الوظائف",
+                footer_copyright: "© 2024 ستيتش. جميع الحقوق محفوظة."
+            }
+        };
+
+        const langToggle = document.getElementById('langToggle');
+        const currentLangSpan = document.getElementById('currentLang');
+        let currentLang = 'en';
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            
+            // Update HTML dir and lang attributes for RTL/LTR and font styles
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            currentLangSpan.textContent = currentLang.toUpperCase();
+            
+            // Update texts
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    if(el.tagName.toLowerCase() === 'option') {
+                        el.textContent = translations[currentLang][key];
+                    } else if (el.tagName.toLowerCase() === 'span' || el.children.length === 0) {
+                        el.textContent = translations[currentLang][key];
+                    } else {
+                        // For elements that might contain child elements (like icons), we only update text nodes if needed, or structured differently
+                        // A simple approach is just updating textContent for our case as we nested spans
+                        el.textContent = translations[currentLang][key];
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

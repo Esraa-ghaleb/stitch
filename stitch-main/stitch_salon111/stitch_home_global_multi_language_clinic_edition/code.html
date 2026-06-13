@@ -1,0 +1,393 @@
+<!DOCTYPE html><html dir="ltr" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Stitch - Luxury Beauty Salon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&amp;family=Noto+Sans+Arabic:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ebe1d4",
+                        "surface-container-high": "#e8e8e6",
+                        "on-primary-fixed": "#241a0e",
+                        "tertiary-fixed-dim": "#d2c4be",
+                        "on-surface": "#1a1c1b",
+                        "tertiary": "#675c58",
+                        "inverse-surface": "#2f3130",
+                        "on-surface-variant": "#4d453e",
+                        "tertiary-container": "#d4c6c0",
+                        "secondary": "#645d53",
+                        "inverse-primary": "#d7c3b0",
+                        "tertiary-fixed": "#eedfda",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "surface-container": "#eeeeec",
+                        "on-tertiary-container": "#5c524e",
+                        "surface-tint": "#6b5c4c",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e8ded1",
+                        "background": "#f9f9f7",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#686257",
+                        "surface-container-highest": "#e2e3e1",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#d0c4bb",
+                        "primary": "#6b5c4c",
+                        "on-secondary-fixed": "#1f1b13",
+                        "surface-bright": "#f9f9f7",
+                        "on-tertiary-fixed": "#211a17",
+                        "on-primary-fixed-variant": "#524436",
+                        "surface-dim": "#dadad8",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#7f756d",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#f4dfcb",
+                        "on-background": "#1a1c1b",
+                        "surface-container-low": "#f4f4f2",
+                        "on-tertiary-fixed-variant": "#4e4541",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "surface-variant": "#e2e3e1",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "on-primary-container": "#605142",
+                        "primary-container": "#d9c5b2",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface": "#f9f9f7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "24px",
+                        "grid-gutter": "24px",
+                        "container-padding": "40px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk", "Noto Sans Arabic", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "Noto Sans Arabic", "sans-serif"],
+                        "headline-md": ["Bodoni Moda", "Noto Naskh Arabic", "serif"],
+                        "display-xl": ["Bodoni Moda", "Noto Naskh Arabic", "serif"],
+                        "headline-lg-mobile": ["Bodoni Moda", "Noto Naskh Arabic", "serif"],
+                        "label-sm": ["Hanken Grotesk", "Noto Sans Arabic", "sans-serif"],
+                        "headline-lg": ["Bodoni Moda", "Noto Naskh Arabic", "serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { 
+            background-color: #FAFAF8; 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 198, 192, 0.3); /* Rose Gold tint */
+            box-shadow: 0 40px 40px -10px rgba(107, 92, 76, 0.05);
+        }
+        .text-rose-gold { color: #d4c6c0; }
+        .border-rose-gold { border-color: #d4c6c0; }
+        
+        /* Language Transition Styles */
+        .lang-en:lang(ar) { display: none; }
+        .lang-ar:lang(en) { display: none; }
+        
+        html[dir="rtl"] {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+        html[dir="rtl"] .font-headline-md,
+        html[dir="rtl"] .font-headline-lg,
+        html[dir="rtl"] .font-headline-lg-mobile,
+        html[dir="rtl"] .font-display-xl {
+            font-family: 'Noto Naskh Arabic', serif;
+        }
+        
+        .transition-content {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        
+        html.switching .transition-content {
+            opacity: 0;
+            transform: scale(0.98);
+        }
+    </style>
+<script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const currentDir = html.getAttribute('dir');
+            const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            const newLang = currentDir === 'rtl' ? 'en' : 'ar';
+            const toggleBtnText = document.getElementById('lang-toggle-text');
+            
+            html.classList.add('switching');
+            
+            setTimeout(() => {
+                html.setAttribute('dir', newDir);
+                html.setAttribute('lang', newLang);
+                toggleBtnText.innerText = currentDir === 'rtl' ? 'AR' : 'EN';
+                html.classList.remove('switching');
+            }, 300);
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-surface antialiased bg-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl bg-white/60 dark:bg-black/60 shadow-sm shadow-[0_40px_40px_-10px_rgba(107,92,76,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-surface-bright transition-content">
+<span class="lang-en">Stitch</span>
+<span class="lang-ar">ستيتش</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md uppercase tracking-widest text-primary dark:text-primary-fixed-dim transition-content"><a class="text-primary font-bold border-b-2 border-primary-container pb-1" href="#">
+<span class="lang-en">Home</span>
+<span class="lang-ar">الرئيسية</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" href="#">
+<span class="lang-en">About</span>
+<span class="lang-ar">من نحن</span>
+</a>
+<div class="group relative">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300 flex items-center gap-1" href="/products">
+<span class="lang-en">Our Services</span>
+<span class="lang-ar">خدماتنا</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</a>
+<div class="absolute top-full left-0 rtl:right-0 rtl:left-auto mt-2 w-48 bg-surface/95 backdrop-blur-xl border border-outline-variant/30 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 p-2">
+<a class="block px-4 py-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant" href="#face">
+<span class="lang-en">Face Care</span>
+<span class="lang-ar">العناية بالوجه</span>
+</a>
+<a class="block px-4 py-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant" href="#hair">
+<span class="lang-en">Hair Care</span>
+<span class="lang-ar">العناية بالشعر</span>
+</a>
+<a class="block px-4 py-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant" href="#body">
+<span class="lang-en">Body Care</span>
+<span class="lang-ar">العناية بالجسم</span>
+</a>
+<a class="block px-4 py-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant" href="#other">
+<span class="lang-en">Other Services</span>
+<span class="lang-ar">خدمات أخرى</span>
+</a>
+</div>
+</div>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" href="/booking">
+<span class="lang-en">Booking</span>
+<span class="lang-ar">الحجز</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" href="#">
+<span class="lang-en">Contact</span>
+<span class="lang-ar">اتصل بنا</span>
+</a></div>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim transition-content">
+<button class="hover:text-primary dark:hover:text-primary-fixed transition-all duration-300">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<div class="flex items-center gap-2 font-label-sm uppercase hover:text-primary transition-colors cursor-pointer" onclick="toggleLanguage()">
+<span class="material-symbols-outlined text-[18px]">language</span>
+<span class="" id="lang-toggle-text">AR</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-[120px] pb-section-gap transition-content">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-container-padding relative mb-section-gap">
+<div class="relative w-full h-[70vh] md:h-[80vh] rounded-[40px] overflow-hidden mb-12">
+<img alt="A high-end editorial fashion photography shot of two young women sitting in a luxury modern hair salon. Both women are wearing black outfits and have fluffy white bath towels wrapped as turbans on their heads. They are both wearing stylish oversized retro sunglasses, holding open fashion magazines in their hands. In the background, there are professional vintage-style black hooded hair dryer machines on stands. The lighting is moody, cinematic, and soft with a dark background. The composition is professional, chic, and sophisticated, with a foreground coffee table holding a small potted plant and a marble tray. Photorealistic, 8k resolution, elegant aesthetic. High-end luxury beauty salon interior. Stitch brand colors." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo4aAiofl4r9H6rcHe3LCi_l1A61KjkC-QKMkojO2he28wH0OwkzugtwIbSHQ0cZHanRNmFnkj-oVJjvJBNRsqUxiurL329bDmwoEy2usjEFoBiQ8lSb4fyIEGhDBeCBc_-4Ow_1HWAzHjyRR0euLj_NOtZUS5a9Kt9DpiSYATG76VSEI7jaat4clfMufkHQqVKRZt-Ysi_IQ58OO1smrfvoDmrJ2ZaVLKHIrH3JN_Oxe22mihXSijMAxCl6W3lS65xeuel1r9CXwx">
+<!-- Floating Glass Card Over Hero -->
+<div class="absolute bottom-10 left-10 rtl:left-auto rtl:right-10 md:bottom-20 md:left-20 rtl:md:left-auto rtl:md:right-20 glass-card p-8 rounded-2xl max-w-md">
+<p class="font-body-md text-on-surface mb-2">
+<span class="lang-en">Inspired by you and wanted to turn everyday care into a special ritual.</span>
+<span class="lang-ar">مستوحى منك، وأردنا تحويل العناية اليومية إلى طقوس خاصة.</span>
+</p>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">
+<span class="lang-en">Stitch Philosophy</span>
+<span class="lang-ar">فلسفة ستيتش</span>
+</p>
+</div>
+<!-- Floating Product Images -->
+<div class="absolute top-20 right-20 rtl:right-auto rtl:left-20 glass-card p-4 rounded-xl w-48 shadow-[0_20px_40px_-10px_rgba(107,92,76,0.1)] hover:-translate-y-2 transition-transform duration-500 hidden md:block">
+<img alt="Signature Facial" class="w-full h-auto rounded-lg mb-3 object-cover aspect-square" src="https://lh3.googleusercontent.com/aida/AP1WRLvFQ6_Dqrf5CLiUkwnzHPdRI2N2jxXH5sJfmXd6vJC-AKq-Ujzhtrpbn0FV82GFCx7nn-7DTHOOst_EVFLX1W38Y4kbTMViySrKu2sjpSoEYzXdXcHClWm-tafZvkt3VHr4f4znRdNb5NpAqMOxl3NN8MuTzrJrlS-rzthHTev8p62JJTgGFVXqDE4GZldpdxL18S0bZzZEFjGdzcrf-4qytu1yOWw9ffotg1BJg__xgJd9txgQ4SO949o">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-label-sm uppercase">
+<span class="lang-en">Signature Facial</span>
+<span class="lang-ar">علاج الوجه المميز</span>
+</p>
+<p class="text-xs text-on-surface-variant">
+<span class="lang-en">Sale -15%</span>
+<span class="lang-ar">تخفيض -15%</span>
+</p>
+</div>
+<span class="material-symbols-outlined text-[16px] rtl:transform rtl:scale-x-[-1]">arrow_outward</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter mt-12">
+<div class="md:col-span-8">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-6 leading-tight">
+<span class="lang-en">Luxury Beauty.<br><span class="text-primary italic">Designed For Every Woman.</span></span>
+<span class="lang-ar">جمال فاخر.<br><span class="text-primary italic">صُمم لكل امرأة.</span></span>
+</h1>
+</div>
+<div class="md:col-span-4 flex flex-col justify-end">
+<p class="font-body-lg text-on-surface-variant mb-8">
+<span class="lang-en">Experience the pinnacle of sophisticated self-care.</span>
+<span class="lang-ar">استمتعي بقمة العناية الذاتية الراقية.</span>
+</p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-on-surface text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary transition-colors shadow-lg" href="/booking">
+<span class="lang-en">Book Appointment</span>
+<span class="lang-ar">احجزي موعداً</span>
+</a>
+<a class="glass-card border border-rose-gold text-on-surface px-8 py-4 rounded-full font-body-md hover:bg-surface-container transition-colors" href="/products"><span class="lang-en">Explore Services</span>
+<span class="lang-ar">استكشف الخدمات</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section Editorial -->
+<section class="max-w-[1440px] mx-auto px-container-padding mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter items-center">
+<div class="md:col-span-4">
+<h2 class="font-label-sm uppercase tracking-[0.2em] text-on-surface-variant mb-4">
+<span class="lang-en">Brand Mission</span>
+<span class="lang-ar">مهمة العلامة التجارية</span>
+</h2>
+</div>
+<div class="md:col-span-8">
+<p class="font-headline-md text-on-surface leading-snug mb-8">
+<span class="lang-en">The brand's goal is to give a feeling of luxury spa care without being over the top. We want to focus on the skincare experience and packaging should not be distracting.</span>
+<span class="lang-ar">هدف العلامة التجارية هو إعطاء شعور برعاية السبا الفاخرة دون المبالغة. نريد التركيز على تجربة العناية بالبشرة ويجب ألا يكون التغليف مشتتًا للانتباه.</span>
+</p>
+<a class="inline-flex items-center gap-2 border border-outline px-6 py-2 rounded-full font-label-sm uppercase hover:bg-surface-container transition-colors" href="#">
+<span class="lang-en">Learn More</span>
+<span class="lang-ar">اعرفي المزيد</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Product Categories -->
+<section class="max-w-[1440px] mx-auto px-container-padding mb-section-gap" id="services">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Body -->
+<div class="glass-card rounded-[32px] p-6 hover:-translate-y-2 transition-transform duration-500 cursor-pointer group flex flex-col h-[400px] bg-secondary-fixed/20 relative overflow-hidden">
+<div class="flex justify-between items-start mb-auto relative z-10">
+<span class="font-label-sm uppercase tracking-wider text-on-surface-variant">
+<span class="lang-en">( body )</span>
+<span class="lang-ar">( الجسم )</span>
+</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity rtl:transform rtl:scale-x-[-1]">arrow_outward</span>
+</div>
+<img alt="Body Care" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfv7_E_Xo5iybi8YAqW_ugR4FjF7UiDV2NxembWSGTcx79TsT8Np6SYE3WqVmnBAn0hiceGmcqxdHU9r1xmsMmC74dQODuh9QKxoXyMuU9PNrChPuaV8WgQMWn2wp180VNmB1GqtIdkI5PttYsEgYjV5NlgHiSJ663HxaKXbvPLlc4frzR19jt73DqC_7KgbsTutzgQLSmH7bykA3LT5mBciIoKGnHhVnoK1DZesq5z2ZnEVbC3fW2ikvt-iKF-3DaNJ1rFsfeKe8NPLE">
+</div>
+<!-- Face -->
+<div class="glass-card rounded-[32px] p-6 hover:-translate-y-2 transition-transform duration-500 cursor-pointer group flex flex-col h-[400px] bg-secondary-fixed/20 relative overflow-hidden">
+<div class="flex justify-between items-start mb-auto relative z-10">
+<span class="font-label-sm uppercase tracking-wider text-on-surface-variant">
+<span class="lang-en">( face )</span>
+<span class="lang-ar">( الوجه )</span>
+</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity rtl:transform rtl:scale-x-[-1]">arrow_outward</span>
+</div>
+<img alt="Face Care" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsnEIY61Gw1qpRxIxgRu-iMOdq7sVFzuDyxXN_VDOP8EL7jK22hC3fOegODbPEhLKvIZvUHUBmBD117-VSTYUIB7xco9ZWEUyft1gTVtqCqPwDJkACO43on2URvWw00CQXBtztnapfPzBO8WrPgvcVMMfCgXNHZdxNuZfzvTnv8R5Bhj8AkTvt0ggSSIZmy5HpbFOZV7E6SmrgdTIBsWM9WGOXeDsV4Woe8v2Qm9fG_sWZyFdJC_52O1UPnNRsM-N0RTRMoZ4_1L11x5A">
+</div>
+<!-- Hair -->
+<div class="glass-card rounded-[32px] p-6 hover:-translate-y-2 transition-transform duration-500 cursor-pointer group flex flex-col h-[400px] bg-secondary-fixed/20 relative overflow-hidden">
+<div class="flex justify-between items-start mb-auto relative z-10">
+<span class="font-label-sm uppercase tracking-wider text-on-surface-variant">
+<span class="lang-en">( hair )</span>
+<span class="lang-ar">( الشعر )</span>
+</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity rtl:transform rtl:scale-x-[-1]">arrow_outward</span>
+</div>
+<img alt="Hair Care" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABdOpsllrn1OYQ60DEb_i9z-iu_B1SHsdPtcVvRRLhRdH8tsuYHxSYN2Ch75FsmeiCNKAPwd9D-mIXYaWmmMsYuWi_49oBf7Ar2dHu0XnUF-8HcXy5qjOS2HYZL5jduTzSdNEF2BPSUscPCkrY21KGlgoCa5LTflRNb7Y_5a8u6AESwO7dn82qlF5vDNC_LWkZAX12pUaInpuJ18bjVTaTQa9FcoGGvycdK_CSkHT-9-olvZ5Caj-AUgT9u6yw6xEfCPjVC_Eg1YLkkxw">
+</div>
+<!-- Other -->
+<div class="glass-card rounded-[32px] p-6 hover:-translate-y-2 transition-transform duration-500 cursor-pointer group flex flex-col h-[400px] bg-secondary-fixed/20 overflow-hidden relative">
+<div class="flex justify-between items-start mb-auto relative z-10">
+<span class="font-label-sm uppercase tracking-wider text-on-surface-variant">
+<span class="lang-en">( other )</span>
+<span class="lang-ar">( أخرى )</span>
+</span>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity rtl:transform rtl:scale-x-[-1]">arrow_outward</span>
+</div>
+<img alt="Other Services" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAucgE2KvnmDjJCPx-CaDUz3Q6OxbI_YruXYSBjgXhEyJcbYce7CryjE-BeYO2cflB3g9Phj3LszfD3ioPRBDV0pVODO-qt6DT9W01Lj6ZBL7t0c-tIWKJspuegHVYUy_O0J7Bvtgg7oAWWqfC9siKAuxCkzkDCdyDWaKvTUwh6z6Rak3PtxCkZ77a8R4zMb1zSOOrLk1SK0Gj-8bBBGJDJyHR7VCF9MQjXfDHvk41hEPvQKC3nkZneN4eMH0QWgpTMTUgwQhRpi4as">
+<div class="absolute bottom-6 left-6 rtl:left-auto rtl:right-6 z-10">
+<span class="font-headline-md text-on-surface transform -rotate-90 rtl:rotate-90 origin-bottom-left rtl:origin-bottom-right inline-block">
+<span class="lang-en">the act</span>
+<span class="lang-ar">الفعل</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 px-10 bg-background dark:bg-on-primary-fixed border-t border-outline-variant/30 transition-content">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap max-w-[1440px] mx-auto opacity-80 hover:opacity-100 transition-opacity">
+<div class="font-headline-md text-headline-md text-on-surface">
+<span class="lang-en">Stitch</span>
+<span class="lang-ar">ستيتش</span>
+</div>
+<div class="flex flex-col gap-4 font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Privacy Policy</span>
+<span class="lang-ar">سياسة الخصوصية</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Terms of Service</span>
+<span class="lang-ar">شروط الخدمة</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">FAQ</span>
+<span class="lang-ar">الأسئلة الشائعة</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Careers</span>
+<span class="lang-ar">الوظائف</span>
+</a>
+</div>
+<div class="text-right rtl:text-left font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim flex items-end justify-end rtl:justify-start">
+<span class="lang-en">© 2024 Stitch. All rights reserved.</span>
+<span class="lang-ar">© 2024 ستيتش. جميع الحقوق محفوظة.</span>
+</div>
+</div>
+</footer>
+<!-- FAB (Floating Action Button) -->
+<a class="fixed bottom-8 right-8 rtl:right-auto rtl:left-8 w-16 h-16 bg-[#d4c6c0] rounded-full flex justify-center items-center shadow-2xl hover:scale-105 transition-transform z-50 group" href="/booking">
+<span class="material-symbols-outlined text-on-surface group-hover:animate-pulse">calendar_month</span>
+</a>
+
+
+
+
+
+
+
+
+
+
+</body></html>

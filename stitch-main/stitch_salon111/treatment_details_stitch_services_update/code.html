@@ -1,0 +1,356 @@
+<!DOCTYPE html><html dir="ltr" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Signature Treatment Details - Stitch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Amiri:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cairo:wght@200..1000&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#d4c6c0",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#5c524e",
+                        "on-secondary-container": "#686257",
+                        "tertiary-fixed": "#eedfda",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "inverse-surface": "#2f3130",
+                        "on-tertiary-fixed": "#211a17",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e3e1",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "surface-container-high": "#e8e8e6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "surface-bright": "#f9f9f7",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeec",
+                        "surface": "#f9f9f7",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "tertiary": "#675c58",
+                        "on-primary-fixed": "#241a0e",
+                        "secondary": "#645d53",
+                        "primary-fixed": "#f4dfcb",
+                        "background": "#f9f9f7",
+                        "secondary-fixed": "#ebe1d4",
+                        "primary-container": "#d9c5b2",
+                        "surface-container-low": "#f4f4f2",
+                        "on-primary-fixed-variant": "#524436",
+                        "inverse-on-surface": "#f1f1ef",
+                        "error": "#ba1a1a",
+                        "outline": "#7f756d",
+                        "on-surface-variant": "#4d453e",
+                        "outline-variant": "#d0c4bb",
+                        "on-primary-container": "#605142",
+                        "secondary-container": "#e8ded1",
+                        "on-tertiary-fixed-variant": "#4e4541",
+                        "inverse-primary": "#d7c3b0",
+                        "primary": "#6b5c4c",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "surface-variant": "#e2e3e1",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1f1b13",
+                        "surface-tint": "#6b5c4c",
+                        "tertiary-fixed-dim": "#d2c4be"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "24px",
+                        "section-gap": "160px",
+                        "grid-gutter": "24px",
+                        "container-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda", "Amiri"],
+                        "body-md": ["Hanken Grotesk", "Cairo"],
+                        "display-xl": ["Bodoni Moda", "Amiri"],
+                        "headline-lg-mobile": ["Bodoni Moda", "Amiri"],
+                        "body-lg": ["Hanken Grotesk", "Cairo"],
+                        "label-sm": ["Hanken Grotesk", "Cairo"],
+                        "headline-lg": ["Bodoni Moda", "Amiri"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f9f9f7; color: #1a1c1b; overflow-x: hidden; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(215, 195, 176, 0.3); }
+        .lux-shadow { box-shadow: 0 40px 40px -10px rgba(107, 92, 76, 0.08); }
+        .hover-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 50px 50px -15px rgba(107, 92, 76, 0.12); }
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom { transition: transform 0.8s ease; }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* LTR/RTL Support Base */
+        .rtl { direction: rtl; font-family: 'Cairo', sans-serif; }
+        .rtl .font-display-xl, .rtl .font-headline-lg, .rtl .font-headline-md, .rtl .font-headline-lg-mobile { font-family: 'Amiri', serif; }
+        .ltr { direction: ltr; }
+        
+        /* Dropdown styling */
+        .group:hover .dropdown-menu { display: block; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface bg-background ltr">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-[0_40px_40px_-10px_rgba(107,92,76,0.08)] bg-white/60 backdrop-blur-2xl transition-all duration-500 ease-out flex justify-between items-center px-container-padding h-24 w-full max-w-full">
+<div class="flex items-center gap-8">
+<a class="font-display-xl text-headline-md tracking-tighter text-on-surface dark:text-on-surface" data-ar="ستيتش" data-en="Stitch" href="#">Stitch</a>
+</div>
+<div class="hidden md:flex gap-8 items-center"><a class="text-on-surface-variant dark:text-on-surface-variant/80 hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" data-ar="الرئيسية" data-en="Home" href="#">Home</a><a class="text-on-surface-variant dark:text-on-surface-variant/80 hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" data-ar="حول" data-en="About" href="#">About</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" data-ar="خدماتنا" data-en="Our Services" href="#">Our Services</a><a class="text-on-surface-variant dark:text-on-surface-variant/80 hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" data-ar="الحجز" data-en="Booking" href="#">Booking</a><a class="text-on-surface-variant dark:text-on-surface-variant/80 hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" data-ar="اتصل بنا" data-en="Contact" href="#">Contact</a></div>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<button class="hover:text-primary transition-colors duration-300"><span class="material-symbols-outlined">shopping_cart</span></button>
+<div class="flex items-center gap-2 border-l border-primary/30 pl-4 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-4">
+<button class="font-label-sm font-bold text-label-sm uppercase tracking-widest hover:text-primary-container transition-colors lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+<span class="text-on-surface-variant/30">|</span>
+<button class="font-label-sm text-label-sm uppercase tracking-widest hover:text-primary-container transition-colors text-on-surface-variant lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<div class="max-w-7xl mx-auto px-container-padding">
+<!-- Product Header & Main Image Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter mb-section-gap">
+<!-- Left: Images -->
+<div class="md:col-span-7 flex flex-col gap-6">
+<div class="img-zoom-container rounded-xl overflow-hidden lux-shadow relative w-full h-[60vh] md:h-[80vh]">
+<img alt="Signature Treatment Main" class="img-zoom w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA3i8jfWc4Q8LPN-h7XS-idxqX6SGlS9aG2KyOFl1lpp6bWVc9jmi-7zq60XnSyd41LHlyBjc3mLnNSNrkvK-L6EvdPRrSMIX7TFkB280aS33mtrB41QLf7BDKPpTj_rApV9iKdT0ps2H7hIKAB8mc7gj9eLfS9Jz2pF_M6KGL_l7asUGfFQPlZFUkFqZfBG9ZSylRixf_AyHOcmaUp90xYYQWrpgFu9sxwG-OAZM8RleaTEmr73nI1ORK-rLw30s4ti1o5xOCsJoakzM">
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="img-zoom-container rounded-lg overflow-hidden lux-shadow h-48 md:h-64">
+<img alt="Cream Texture Detail" class="img-zoom w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQtAYdJhlPayLaWOpZk84nCOV4JsIpQRDmZsGP_4tN4G6Ck5Ru_uiQHqqj54kZb5u_xUfLaH7sq-InZfW2Ti_JU8UC_Uar7nzo5Xlkjp40SD-HykGezaEXKKZOdeI837Jqw47YXCvTKJrdplf8_eyoJ5DFy-u3-TSgMUDZeex7q6kRBaNgHY2d0lJbqFvozR-rcyERitGPK7xmc4jZqACQrl3xqMsyDO8luODZrjiVdOi-MZn4X7DUs5XCQi2pd2DvgYArjUVuNZS">
+</div>
+<div class="img-zoom-container rounded-lg overflow-hidden lux-shadow h-48 md:h-64" data-alt="A minimalist still life of a luxury face cream jar on a pedestal. Soft, warm natural light casting gentle shadows. Elegant composition reflecting a high-end beauty brand identity in a bright, ethereal studio setting.">
+<div class="w-full h-full bg-surface-container-high animate-pulse flex items-center justify-center text-on-surface-variant" data-ar="عنصر نائب للصورة" data-en="Image Placeholder">Image Placeholder</div>
+</div>
+</div>
+</div>
+<!-- Right: Details (Sticky) -->
+<div class="md:col-span-5 relative">
+<div class="sticky top-32 glass-panel p-8 rounded-xl lux-shadow">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase" data-ar="علاج الوجه" data-en="Facial Treatment">Facial Treatment</span>
+<span class="bg-surface-container-highest text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm uppercase" data-ar="الأكثر مبيعاً" data-en="Bestseller">Bestseller</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2 text-on-surface" data-ar="تفاصيل الجلسة المميزة" data-en="Signature Treatment Details">Signature Treatment Details</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6" data-ar="ترطيب عميق لبشرة مشرقة ومرنة." data-en="Deep hydration for a luminous, resilient complexion.">Deep hydration for a luminous, resilient complexion.</p>
+<div class="flex items-center justify-between mb-8 pb-8 border-b border-outline-variant/30">
+<span class="font-headline-md text-headline-md text-on-surface">$95</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="ml-2 rtl:ml-0 rtl:mr-2 text-on-surface-variant font-label-sm text-label-sm uppercase" data-ar="(128 مراجعة)" data-en="(128 Reviews)">(128 Reviews)</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-6">
+<div class="flex items-center justify-between border-b border-primary/30 pb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" data-ar="الكمية" data-en="Quantity">Quantity</span>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="document.getElementById('qty').value = Math.max(1, parseInt(document.getElementById('qty').value) - 1)"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-12 text-center bg-transparent border-none focus:ring-0 font-body-lg text-body-lg p-0 text-on-surface" id="qty" min="1" type="number" value="1">
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="document.getElementById('qty').value = parseInt(document.getElementById('qty').value) + 1"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+<button class="w-full bg-on-surface text-on-primary py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover-lift" data-ar="احجز الجلسة" data-en="Book Session">Book Session</button>
+<button class="w-full bg-transparent border border-primary text-primary py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/5 transition-colors duration-300" data-ar="عرض الجدول" data-en="View Schedule">View Schedule</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabbed Content Section -->
+<div class="max-w-4xl mx-auto mb-section-gap">
+<div class="flex flex-wrap justify-center gap-8 border-b border-outline-variant/30 mb-12 pb-4">
+<button class="w-full bg-transparent border border-primary text-primary py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/5 transition-colors duration-300" data-ar="عرض الجدول" data-en="View Schedule">View Schedule</button>
+<button class="tab-btn font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all pb-2" data-ar="خطوات الجلسة" data-en="The Process" data-target="benefits">The Process</button>
+<button class="tab-btn font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all pb-2" data-ar="التقنية والمواد" data-en="Technology &amp; Materials" data-target="ingredients">Technology &amp; Materials</button>
+<button class="tab-btn font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all pb-2" data-ar="العناية اللاحقة" data-en="Aftercare" data-target="how-to">Aftercare</button>
+</div>
+<div class="relative min-h-[300px]">
+<div class="tab-content active font-body-lg text-body-lg text-on-surface-variant leading-relaxed" id="desc">
+<p class="mb-6" data-ar="جربي قمة الفخامة في العناية بالبشرة مع كريم أوروم المغذي. تمت صياغته بدقة لتقليد الحاجز الدهني الطبيعي للبشرة، هذا الكريم الغني للغاية وخفيف الوزن بشكل مدهش يُمتص على الفور لتقديم ترطيب عميق ودائم." data-en="Experience the epitome of skincare luxury with our Aurum Nourishing Cream. Meticulously formulated to mimic the skin's natural lipid barrier, this ultra-rich yet surprisingly weightless cream absorbs instantly to deliver deep, lasting hydration.">Experience the epitome of skincare luxury with our Aurum Nourishing Cream. Meticulously formulated to mimic the skin's natural lipid barrier, this ultra-rich yet surprisingly weightless cream absorbs instantly to deliver deep, lasting hydration.</p>
+<p data-ar="غني بالمستخلصات النباتية النادرة والببتيدات المتقدمة، يعمل بانسجام لاستعادة توهج شبابي ومشرق، مما يترك بشرتك تشعر بنعومة ومرونة وتجدد غير عاديين. طقس حسي يحول العناية اليومية إلى عمل من أعمال الرعاية الذاتية العميقة." data-en="Infused with rare botanical extracts and advanced peptides, it works harmoniously to restore a youthful, radiant glow, leaving your complexion feeling extraordinarily soft, supple, and revitalized. A sensory ritual that transforms daily maintenance into an act of profound self-care." class="">Infused with rare botanical extracts and advanced peptides, it works harmoniously to restore a youthful, radiant glow, leaving your complexion feeling extraordinarily soft, supple, and revitalized. A sensory ritual that transforms daily maintenance into an act of profound self-care.</p>
+</div>
+<div class="tab-content font-body-lg text-body-lg text-on-surface-variant" id="benefits">
+<ul class="space-y-4 list-disc pl-6 rtl:pl-0 rtl:pr-6">
+<li data-ar="يوفر ترطيبًا مكثفًا لمدة 24 ساعة دون الشعور بالدهون." data-en="Provides 24-hour intense moisture without feeling greasy." class="">Provides 24-hour intense moisture without feeling greasy.</li>
+<li data-ar="يحسن بشكل واضح مرونة البشرة وثباتها." data-en="Visibly improves skin elasticity and firmness." class="">Visibly improves skin elasticity and firmness.</li>
+<li data-ar="ينعم مظهر الخطوط الدقيقة والملمس." data-en="Smooths the appearance of fine lines and texture." class="">Smooths the appearance of fine lines and texture.</li>
+<li data-ar="يعزز الإشراق الطبيعي ويوحد لون البشرة." data-en="Enhances natural radiance and evens skin tone." class="">Enhances natural radiance and evens skin tone.</li>
+<li data-ar="يهدئ ويحمي من الضغوطات البيئية." data-en="Soothes and protects against environmental stressors." class="">Soothes and protects against environmental stressors.</li>
+</ul>
+</div>
+<div class="tab-content font-body-md text-body-md text-on-surface-variant" id="ingredients">
+<p class="mb-4 font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="المواد الفعالة الرئيسية:" data-en="Key Actives:">Key Actives:</p>
+<p class="mb-6" data-ar="الذهب الغروي، مركب حمض الهيالورونيك، السكوالين (مشتق من الزيتون)، زيت بذور ثمر الورد، الببتيدات." data-en="Colloidal Gold, Hyaluronic Acid Complex, Squalane (Olive-derived), Rosehip Seed Oil, Peptides.">Colloidal Gold, Hyaluronic Acid Complex, Squalane (Olive-derived), Rosehip Seed Oil, Peptides.</p>
+<p class="text-sm opacity-80" data-ar="القائمة الكاملة: أكوا (ماء)، جلسرين، زبدة بوتيروسبيرموم باركي (الشيا)، كابريليك/كابريك ثلاثي الجليسريد، سكوالين، كحول سيتريل..." data-en="Full list: Aqua (Water), Glycerin, Butyrospermum Parkii (Shea) Butter, Caprylic/Capric Triglyceride, Squalane, Cetearyl Alcohol...">Full list: Aqua (Water), Glycerin, Butyrospermum Parkii (Shea) Butter, Caprylic/Capric Triglyceride, Squalane, Cetearyl Alcohol...</p>
+</div>
+<div class="tab-content font-body-lg text-body-lg text-on-surface-variant" id="how-to">
+<p class="mb-6" data-ar="للحصول على أفضل النتائج، ادمجيه في طقوسك الصباحية والمسائية." data-en="For optimal results, incorporate into your morning and evening ritual.">For optimal results, incorporate into your morning and evening ritual.</p>
+<ol class="space-y-4 list-decimal pl-6 rtl:pl-0 rtl:pr-6">
+<li data-ar="نظفي وجهك وضعِ التونر." data-en="Cleanse and tone your face." class="">Cleanse and tone your face.</li>
+<li data-ar="ضعي السيروم المفضل لديك." data-en="Apply your preferred serum." class="">Apply your preferred serum.</li>
+<li data-ar="خذي كمية بحجم اللؤلؤة من كريم أوروم المغذي." data-en="Take a pearl-sized amount of Aurum Nourishing Cream." class="">Take a pearl-sized amount of Aurum Nourishing Cream.</li>
+<li data-ar="دلكي بلطف على الوجه والرقبة ومنطقة الصدر باستخدام حركات مسح لأعلى." data-en="Gently massage onto face, neck, and décolletage using upward, sweeping motions." class="">Gently massage onto face, neck, and décolletage using upward, sweeping motions.</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- Customer Reviews (Editorial Style) -->
+<section class="mb-section-gap">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4" data-ar="الحكم" data-en="The Verdict">The Verdict</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant" data-ar="ما يقوله مجتمعنا." data-en="What our community is saying.">What our community is saying.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Review 1 -->
+<div class="glass-panel p-8 rounded-xl lux-shadow">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<h3 class="font-headline-md text-2xl mb-4 text-on-surface" data-ar="&quot;كمال مطلق&quot;" data-en="&quot;Absolute Perfection&quot;">"Absolute Perfection"</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic" data-ar="&quot;لقد غيّر هذا الكريم بشرتي الشتوية تمامًا. الملمس إلهي - غني ولكنه يتغلغل مباشرة. يبدو وجهي ممتلئًا ويشعر بنعومة لا تصدق. إنها حقًا تجربة فاخرة كل ليلة.&quot;" data-en="&quot;This cream has completely transformed my winter skin. The texture is divine—rich but sinks right in. My face looks plumper and feels incredibly soft. It's truly a luxurious experience every night.&quot;">"This cream has completely transformed my winter skin. The texture is divine—rich but sinks right in. My face looks plumper and feels incredibly soft. It's truly a luxurious experience every night."</p>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="— إيلينا ف.، مشتري معتمد" data-en="— Elena V., Verified Buyer">— Elena V., Verified Buyer</p>
+</div>
+<!-- Review 2 -->
+<div class="glass-panel p-8 rounded-xl lux-shadow transform md:-translate-y-8">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<h3 class="font-headline-md text-2xl mb-4 text-on-surface" data-ar="&quot;يستحق كل بنس&quot;" data-en="&quot;Worth Every Penny&quot;">"Worth Every Penny"</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic" data-ar="&quot;كنت مترددة بشأن السعر، لكن القليل منه يقطع شوطًا طويلاً. الرائحة الرقيقة رائعة، ويجلس بشكل جميل تحت المكياج دون أن يتكتل. الكأس المقدسة الجديدة الخاصة بي.&quot;" data-en="&quot;I was hesitant about the price, but a little goes a long way. The subtle scent is gorgeous, and it sits beautifully under makeup without pilling. My new holy grail.&quot;">"I was hesitant about the price, but a little goes a long way. The subtle scent is gorgeous, and it sits beautifully under makeup without pilling. My new holy grail."</p>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="— سارة م.، مشتري معتمد" data-en="— Sarah M., Verified Buyer">— Sarah M., Verified Buyer</p>
+</div>
+<!-- Review 3 -->
+<div class="glass-panel p-8 rounded-xl lux-shadow">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<h3 class="font-headline-md text-2xl mb-4 text-on-surface" data-ar="&quot;ترطيب عميق&quot;" data-en="&quot;Deeply Hydrating&quot;">"Deeply Hydrating"</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic" data-ar="&quot;منتج جميل. يوفر ترطيبًا دائمًا طوال اليوم. لقد أعطيته 4 نجوم فقط لأن البرطمان ثقيل للسفر، لكن الكريم نفسه رائع.&quot;" data-en="&quot;A beautiful product. It provides lasting hydration throughout the day. I only gave it 4 stars because the jar is heavy for travel, but the cream itself is exquisite.&quot;">"A beautiful product. It provides lasting hydration throughout the day. I only gave it 4 stars because the jar is heavy for travel, but the cream itself is exquisite."</p>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="— كلوي ر.، مشتري معتمد" data-en="— Chloe R., Verified Buyer">— Chloe R., Verified Buyer</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant/30 flat transition-all duration-300 grid grid-cols-1 md:grid-cols-4 gap-grid-gutter px-container-padding max-w-7xl mx-auto bg-surface dark:bg-surface-container-low">
+<div class="md:col-span-1">
+<h2 class="font-display-xl text-headline-lg text-primary mb-8" data-ar="ستيتش" data-en="Stitch">Stitch</h2>
+<p class="font-body-md text-body-md text-on-surface-variant" data-ar="© 2024 ستيتش. جميع الحقوق محفوظة." data-en="© 2024 Stitch. ALL RIGHTS RESERVED.">© 2024 Stitch. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-col gap-4"><a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="علاجات الوجه" data-en="Facial Treatments" href="#">Facial Treatments</a><a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="علاجات الشعر" data-en="Hair Treatments" href="#">Hair Treatments</a><a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="علاجات الجسم" data-en="Body Treatments" href="#">Body Treatments</a><a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="استشارات" data-en="Consultations" href="#">Consultations</a></div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="إنستغرام" data-en="Instagram" href="#">Instagram</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="فيسبوك" data-en="Facebook" href="#">Facebook</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="تيك توك" data-en="Tiktok" href="#">Tiktok</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300" data-ar="واتساب" data-en="WhatsApp" href="#">WhatsApp</a>
+</div>
+</footer>
+<script>
+        // Tab Interaction
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active classes
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    btn.classList.add('text-on-surface-variant');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Add active classes to clicked
+                button.classList.add('text-primary', 'border-b-2', 'border-primary');
+                button.classList.remove('text-on-surface-variant');
+                const targetId = button.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Language Switcher Logic
+        function setLanguage(lang) {
+            const body = document.body;
+            if (lang === 'ar') {
+                body.setAttribute('dir', 'rtl');
+                body.classList.remove('ltr');
+                body.classList.add('rtl');
+                body.lang = 'ar';
+            } else {
+                body.setAttribute('dir', 'ltr');
+                body.classList.remove('rtl');
+                body.classList.add('ltr');
+                body.lang = 'en';
+            }
+
+            // Update text content
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                if (el.childNodes.length > 0) {
+                    // if it has text nodes and elements, only replace text
+                    let hasElements = false;
+                    for (let i = 0; i < el.childNodes.length; i++) {
+                        if (el.childNodes[i].nodeType === 1) { // ELEMENT_NODE
+                            hasElements = true;
+                            break;
+                        }
+                    }
+                    if (hasElements) {
+                        // find the text node to replace or just replace innerHTML if simple
+                        // For simplicity in this implementation, we handle specific cases or assume simple text replacement
+                        if(el.classList.contains('text-primary') && el.querySelector('.material-symbols-outlined')) {
+                             // Special case for 'Products' link with icon
+                             el.innerHTML = el.getAttribute('data-' + lang) + ' <span class="material-symbols-outlined text-sm">expand_more</span>';
+                        } else {
+                             // This might overwrite inner spans if not careful, but works for our specific data-en/ar usage here
+                            el.innerHTML = el.getAttribute('data-' + lang);
+                        }
+                    } else {
+                        el.textContent = el.getAttribute('data-' + lang);
+                    }
+                } else {
+                    el.textContent = el.getAttribute('data-' + lang);
+                }
+            });
+
+            // Update language toggle buttons styling
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('font-bold', 'text-on-surface');
+                    btn.classList.remove('text-on-surface-variant');
+                } else {
+                    btn.classList.remove('font-bold', 'text-on-surface');
+                    btn.classList.add('text-on-surface-variant');
+                }
+            });
+        }
+    </script>
+
+
+</body></html>

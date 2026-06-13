@@ -1,0 +1,472 @@
+<!DOCTYPE html><html dir="ltr" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Stitch - Face Care Treatments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Amiri:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tajawal:wght@200;300;400;500;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#d4c6c0",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#5c524e",
+                        "on-secondary-container": "#686257",
+                        "tertiary-fixed": "#eedfda",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "inverse-surface": "#2f3130",
+                        "on-tertiary-fixed": "#211a17",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e3e1",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "surface-container-high": "#e8e8e6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "surface-bright": "#f9f9f7",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeec",
+                        "surface": "#f9f9f7",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "tertiary": "#675c58",
+                        "on-primary-fixed": "#241a0e",
+                        "secondary": "#645d53",
+                        "primary-fixed": "#f4dfcb",
+                        "background": "#f9f9f7",
+                        "secondary-fixed": "#ebe1d4",
+                        "primary-container": "#d9c5b2",
+                        "surface-container-low": "#f4f4f2",
+                        "on-primary-fixed-variant": "#524436",
+                        "inverse-on-surface": "#f1f1ef",
+                        "error": "#ba1a1a",
+                        "outline": "#7f756d",
+                        "on-surface-variant": "#4d453e",
+                        "outline-variant": "#d0c4bb",
+                        "on-primary-container": "#605142",
+                        "secondary-container": "#e8ded1",
+                        "on-tertiary-fixed-variant": "#4e4541",
+                        "inverse-primary": "#d7c3b0",
+                        "primary": "#6b5c4c",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "surface-variant": "#e2e3e1",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1f1b13",
+                        "surface-tint": "#6b5c4c",
+                        "tertiary-fixed-dim": "#d2c4be"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "24px",
+                        "section-gap": "160px",
+                        "grid-gutter": "24px",
+                        "container-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda", "Amiri"],
+                        "body-md": ["Hanken Grotesk", "Tajawal"],
+                        "display-xl": ["Bodoni Moda", "Amiri"],
+                        "headline-lg-mobile": ["Bodoni Moda", "Amiri"],
+                        "body-lg": ["Hanken Grotesk", "Tajawal"],
+                        "label-sm": ["Hanken Grotesk", "Tajawal"],
+                        "headline-lg": ["Bodoni Moda", "Amiri"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #FAFAF8; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(208, 196, 187, 0.3);
+        }
+        .soft-shadow { box-shadow: 0 40px 40px -10px rgba(107, 92, 76, 0.08); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 50px 50px -10px rgba(107, 92, 76, 0.12), 0 10px 15px -3px rgba(107, 92, 76, 0.05);
+        }
+        /* RTL support */
+        [dir="rtl"] .font-display-xl, [dir="rtl"] .font-headline-lg, [dir="rtl"] .font-headline-md, [dir="rtl"] .font-headline-lg-mobile {
+            font-family: 'Amiri', serif;
+        }
+        [dir="rtl"] .font-body-lg, [dir="rtl"] .font-body-md, [dir="rtl"] .font-label-sm {
+            font-family: 'Tajawal', sans-serif;
+        }
+        [dir="rtl"] .material-symbols-outlined.rtl-flip { transform: scaleX(-1); }
+        
+        .en-only { display: inline; }
+        .ar-only { display: none; }
+        [dir="rtl"] .en-only { display: none; }
+        [dir="rtl"] .ar-only { display: inline; }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-[0_40px_40px_-10px_rgba(107,92,76,0.08)] transition-all duration-500 ease-out border-b border-white/60">
+<div class="flex justify-between items-center px-container-padding h-24 w-full max-w-[1440px] mx-auto">
+<!-- Brand -->
+<a class="font-display-xl text-headline-md md:text-headline-lg tracking-tighter text-on-surface dark:text-on-surface hover:opacity-80 transition-opacity" href="#">
+<span class="en-only">Stitch</span>
+<span class="ar-only">ستيتش</span>
+</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center space-x-12 rtl:space-x-reverse"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#"><span class="en-only">Home</span><span class="ar-only">الرئيسية</span></a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#"><span class="en-only">About</span><span class="ar-only">عنا</span></a><a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300 flex items-center gap-1 cursor-pointer" href="#"><span class="en-only">Our Services</span><span class="ar-only">خدماتنا</span></a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#"><span class="en-only">Booking</span><span class="ar-only">الحجز</span></a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#"><span class="en-only">Contact</span><span class="ar-only">تواصل معنا</span></a></div>
+<!-- Actions -->
+<div class="flex items-center space-x-6 rtl:space-x-reverse">
+<!-- Language Switcher -->
+<div class="flex items-center space-x-2 rtl:space-x-reverse text-sm font-label-sm tracking-wider">
+<button class="hover:text-primary transition-colors px-2 py-1 rounded-md font-bold" id="lang-en" onclick="setLanguage('en')">EN</button>
+<span class="text-outline-variant">|</span>
+<button class="hover:text-primary transition-colors px-2 py-1 rounded-md text-on-surface-variant" id="lang-ar" onclick="setLanguage('ar')">AR</button>
+</div>
+<button aria-label="shopping_cart" class="text-primary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">shopping_cart</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="relative max-w-[1440px] mx-auto px-6 md:px-container-padding mb-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-grid-gutter items-center">
+<!-- Typography Column -->
+<div class="lg:col-span-5 z-10 pt-12 lg:pt-0">
+<span class="inline-block font-label-sm text-label-sm uppercase tracking-widest text-primary bg-primary/5 px-4 py-2 rounded-full mb-6">
+<span class="en-only">Editorial Edit</span><span class="ar-only">النسخة التحريرية</span>
+</span>
+<h1 class="font-headline-lg-mobile md:font-display-xl text-headline-lg-mobile md:text-display-xl text-on-surface mb-6 leading-tight">
+<span class="en-only">Face Care<br><i class="text-primary/80 font-light">Treatments</i></span>
+<span class="ar-only">علاجات<br><i class="text-primary/80 font-light">العناية بالوجه</i></span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-10 leading-relaxed">
+<span class="en-only">Curated essentials for a radiant, sculpted complexion. Discover our high-performance serums and restorative creams, crafted with pristine ingredients for the modern muse.</span>
+<span class="ar-only">أساسيات مختارة بعناية للحصول على بشرة مشعة ومنحوتة. اكتشفي أمصالنا عالية الأداء والكريمات المجددة، المصنوعة من مكونات نقية للمرأة العصرية.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-on-surface text-on-primary font-body-md text-body-md px-8 py-4 rounded-full hover:bg-primary transition-colors duration-300 shadow-lg shadow-on-surface/10">
+<span class="en-only">Explore Collection</span><span class="ar-only">استكشف المجموعة</span>
+</button>
+</div>
+</div>
+<!-- Image Column -->
+<div class="lg:col-span-7 relative mt-12 lg:mt-0">
+<div class="relative w-full aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden glass-panel soft-shadow">
+<img alt="High-end luxury beauty campaign editorial portrait of a stunning female model with flawless, radiant, dewy skin" class="w-full h-full object-cover mix-blend-multiply hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4NkFKS8YAEYoNX7MrIZSwJf1qqxWhZxhMdzqzUzBHZM-dIIAEebEXo4FWyEhSdVn8q9Wvj4ZD3KYPBnd_fVinYjhIvMXuGx5R7bqB1gblAMlB44ZRAjoqLY9enZFNvNTI_Xok67vNEMpOQHfSQeXeek-WbZLsiZonSbjPawtq0VPBcbWDJTjpO28yhdiiuAz2qNUWGwxqkx2e3GATGracofQwm166jqPRcJHCa2T6c93qWWSkGGcyH7Qgh2yCI_i_tafIvwgC3xUmOmA">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-fixed rounded-full blur-3xl opacity-50 -z-10 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Product Grid Section -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-container-padding">
+<!-- Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-outline-variant/30 pb-6 gap-6">
+<div class="flex items-center space-x-2 rtl:space-x-reverse overflow-x-auto pb-2 w-full md:w-auto hide-scrollbar">
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary font-body-md text-body-md hover:bg-primary/10 transition-colors"><span class="en-only">All Services</span><span class="ar-only">كل الخدمات</span></button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-transparent text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors">
+<span class="en-only">Best Sellers</span><span class="ar-only">الأكثر مبيعاً</span>
+</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-transparent text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors">
+<span class="en-only">New Arrivals</span><span class="ar-only">وصل حديثاً</span>
+</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-transparent text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors">
+<span class="en-only">Cleansers</span><span class="ar-only">منظفات</span>
+</button>
+</div>
+<div class="flex items-center space-x-4 rtl:space-x-reverse shrink-0">
+<span class="font-body-md text-body-md text-on-surface-variant">
+<span class="en-only">Sort by:</span><span class="ar-only">ترتيب حسب:</span>
+</span>
+<button class="flex items-center space-x-1 rtl:space-x-reverse text-on-surface font-body-md text-body-md hover:text-primary transition-colors">
+<span class=""><span class="en-only">Featured</span><span class="ar-only">مميز</span></span>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+<button aria-label="Filter" class="ml-4 w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary">tune</span>
+</button>
+</div>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-grid-gutter gap-y-16">
+<!-- Product Card 1 -->
+<article class="group relative flex flex-col h-full hover-lift glass-panel rounded-2xl p-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 bg-surface-container-lowest">
+<img alt="Portrait of a model showing radiant skin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNlkHUwNHQweYfy2BXieNd11i0nf6P1tcnDJWLuYg24ssSwGnau9SLyCDE8e1tix_-Prdua65FuRHesaMcksRW_KfSNQfvpDhrvSgq8pIQvHtya1TpJ5hJtTrpPlp_pcYgapEFdASkJzvfjnUemCpeY82HqUIfGAhL8WbfhfCs7nrAVzXLU4ICVGjsPtHo5HNwPF71X_zwQUYVLvm-HpcJglDrLFJImqJFe2wYvkDdsUaWmfQJLUahzpbWzAzxA-48ZZJfJu87eZ4UQrg">
+<div class="absolute top-4 left-4">
+<span class="bg-surface-container-highest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">
+<span class="en-only">Best Seller</span><span class="ar-only">الأكثر مبيعاً</span>
+</span>
+</div>
+<button aria-label="Add to Wishlist" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto w-10 h-10 rounded-full bg-white/50 backdrop-blur-md flex items-center justify-center text-primary hover:bg-white hover:text-error transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors text-xl">
+<span class="en-only">Luminous Rose Serum</span><span class="ar-only">سيروم الورد المضيء</span>
+</h2>
+<span class="font-body-md text-body-md text-on-surface font-medium"><span class="en-only">45 Mins</span><span class="ar-only">45 دقيقة</span></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">
+<span class="en-only">A potent elixir infused with Bulgarian rose extract and hyaluronic acid for an instant, dewy glow.</span>
+<span class="ar-only">إكسير فعال غني بخلاصة الورد البلغاري وحمض الهيالورونيك للحصول على إشراقة فورية وندية.</span>
+</p>
+<div class="flex items-center space-x-1 rtl:space-x-reverse mb-6">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2 rtl:mr-2 rtl:ml-0">(128)</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-transparent border border-primary/30 text-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary/5 transition-colors text-sm">
+<span class="en-only">Book Session</span><span class="ar-only">احجز جلسة</span>
+</button>
+<button class="flex-1 bg-on-surface text-on-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary transition-colors text-sm">
+<span class="en-only">Reserve Now</span><span class="ar-only">احجز الآن</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group relative flex flex-col h-full hover-lift glass-panel rounded-2xl p-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 bg-surface-container-lowest">
+<img alt="Portrait of a model showing radiant skin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD61wAE_OxGutYAVxuKGOcWrggQ3q9ZeC-Kvt19HVpWp3Tu51HLpSxyxxa31R-vIaS2mF_RFHCbc5uimp16nsIgRhdkPGq4L-LjzHLzxmaYcJ8UG2Oue6LmBxZ5-o7Q2LhTUVWjofYLjjzh5c_rGDqjFPP4pwhCUoe_2s0-LQ0806VvwFxZA8AVvG_27Z8LhznjzL1rAiwjhdYmmX9M-brwmGTM7bL2GMGPfpQyMu9TYZfIJnLUToTRPpyOAc3Mccyhs6cO0_QzRqDZDfs">
+<div class="absolute top-4 left-4">
+<span class="bg-surface-container-highest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">
+<span class="en-only">New</span><span class="ar-only">جديد</span>
+</span>
+</div>
+<button aria-label="Add to Wishlist" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto w-10 h-10 rounded-full bg-white/50 backdrop-blur-md flex items-center justify-center text-primary hover:bg-white hover:text-error transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors text-xl">
+<span class="en-only">Velvet Nourish Cream</span><span class="ar-only">كريم التغذية المخملي</span>
+</h2>
+<span class="font-body-md text-body-md text-on-surface font-medium"><span class="en-only">90 Mins</span><span class="ar-only">90 دقيقة</span></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">
+<span class="en-only">Rich, restorative hydration that melts into the skin, leaving a cashmere-soft finish.</span>
+<span class="ar-only">ترطيب غني ومجدد يذوب في البشرة، ليترك لمسة ناعمة كالكشمير.</span>
+</p>
+<div class="flex items-center space-x-1 rtl:space-x-reverse mb-6">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 0;">star_half</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2 rtl:mr-2 rtl:ml-0">(45)</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-transparent border border-primary/30 text-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary/5 transition-colors text-sm">
+<span class="en-only">Book Session</span><span class="ar-only">احجز جلسة</span>
+</button>
+<button class="flex-1 bg-on-surface text-on-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary transition-colors text-sm">
+<span class="en-only">Reserve Now</span><span class="ar-only">احجز الآن</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group relative flex flex-col h-full hover-lift glass-panel rounded-2xl p-4">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 bg-surface-container-lowest">
+<img alt="Portrait of a model showing radiant skin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK6l5YJX4AmNOnXdiqMHHucOcglM4fyiMTqh9eUtK4yQyLhGNxGpGcP0Dfx8QzViyuMVTufkUz8SMGT7kWihRQtwSiGjacl3FdeVTMBxsPeKpJSBxC6KfEOJYkOpi8GyPiM8DiTF9QuMAO_DmjPcj1erqJ-vFfSe9H7IN-MewNqB_mX5MUAqOOLUnJF4EtqWBeJ3Z-6sk8D2qaOF09Q9a8xaVHv6RDF8YqSwMkT5KYPBl5gCPHs4MSQHxZQwdeEyRvjJ4uVoHkNoU5QF0">
+<button aria-label="Add to Wishlist" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto w-10 h-10 rounded-full bg-white/50 backdrop-blur-md flex items-center justify-center text-primary hover:bg-white hover:text-error transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors text-xl">
+<span class="en-only">Purifying Silk Cleanser</span><span class="ar-only">منظف الحرير المنقي</span>
+</h2>
+<span class="font-body-md text-body-md text-on-surface font-medium"><span class="en-only">30 Mins</span><span class="ar-only">30 دقيقة</span></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">
+<span class="en-only">A gentle, foaming gel that removes impurities while maintaining the skin's delicate moisture barrier.</span>
+<span class="ar-only">جل رغوي لطيف يزيل الشوائب مع الحفاظ على حاجز رطوبة البشرة الرقيق.</span>
+</p>
+<div class="flex items-center space-x-1 rtl:space-x-reverse mb-6">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2 rtl:mr-2 rtl:ml-0">(312)</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-transparent border border-primary/30 text-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary/5 transition-colors text-sm">
+<span class="en-only">Book Session</span><span class="ar-only">احجز جلسة</span>
+</button>
+<button class="flex-1 bg-on-surface text-on-primary font-body-md text-body-md py-3 rounded-full hover:bg-primary transition-colors text-sm">
+<span class="en-only">Reserve Now</span><span class="ar-only">احجز الآن</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More -->
+<div class="mt-20 flex justify-center">
+<button class="glass-panel text-on-surface font-body-md text-body-md px-10 py-4 rounded-full hover:text-primary hover:border-primary/50 transition-all duration-300">
+<span class="en-only">Discover More</span><span class="ar-only">اكتشف المزيد</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface-container-low w-full py-section-gap border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter px-container-padding max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1 flex flex-col items-start">
+<a class="font-display-xl text-headline-lg text-primary mb-6 hover:opacity-80 transition-opacity" href="#">
+<span class="en-only">Stitch</span><span class="ar-only">ستيتش</span>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-xs">
+<span class="en-only">Curated elegance for the modern individual.</span><span class="ar-only">أناقة منتقاة للفرد العصري.</span>
+</p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1 flex flex-col space-y-4">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 text-xl"><span class="en-only">Services</span><span class="ar-only">الخدمات</span></h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">
+<span class="en-only">Face Care</span><span class="ar-only">العناية بالوجه</span>
+</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">
+<span class="en-only">Hair Care</span><span class="ar-only">العناية بالشعر</span>
+</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">
+<span class="en-only">Body Care</span><span class="ar-only">العناية بالجسم</span>
+</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">
+<span class="en-only">Accessories</span><span class="ar-only">إكسسوارات</span>
+</a>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1 flex flex-col space-y-4">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 text-xl">
+<span class="en-only">Social</span><span class="ar-only">تواصل اجتماعي</span>
+</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">Instagram</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">Facebook</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">Tiktok</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 hover:text-primary transition-all duration-300" href="#">WhatsApp</a>
+</div>
+<!-- Newsletter Column -->
+<div class="col-span-1 flex flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4 text-xl">
+<span class="en-only">The Editorial</span><span class="ar-only">النشرة الإخبارية</span>
+</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+<span class="en-only">Subscribe for exclusive curations and early access.</span><span class="ar-only">اشترك للحصول على مختارات حصرية ووصول مبكر.</span>
+</p>
+<div class="relative w-full max-w-sm">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 transition-colors" data-ar-placeholder="بريدك الإلكتروني" data-en-placeholder="Your email address" id="email-input" placeholder="Your email address" type="email">
+<button aria-label="Subscribe" class="absolute right-0 rtl:left-0 rtl:right-auto bottom-3 text-primary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined rtl-flip">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-container-padding max-w-7xl mx-auto mt-24 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+<span class="en-only">© 2024 Stitch. ALL RIGHTS RESERVED.</span><span class="ar-only">© 2024 ستيتش. جميع الحقوق محفوظة.</span>
+</p>
+<div class="flex space-x-6 rtl:space-x-reverse">
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">
+<span class="en-only">Privacy</span><span class="ar-only">الخصوصية</span>
+</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors" href="#">
+<span class="en-only">Terms</span><span class="ar-only">الشروط</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- FAB -->
+<button aria-label="Chat with a Beauty Advisor" class="fixed bottom-8 right-8 rtl:left-8 rtl:right-auto w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg hover:bg-on-surface transition-colors duration-300 flex items-center justify-center z-50 hover-lift">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<script>
+        function setLanguage(lang) {
+            const html = document.documentElement;
+            const btnEn = document.getElementById('lang-en');
+            const btnAr = document.getElementById('lang-ar');
+            const emailInput = document.getElementById('email-input');
+            
+            if (lang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                btnAr.classList.replace('text-on-surface-variant', 'text-on-surface');
+                btnAr.classList.add('font-bold');
+                btnEn.classList.replace('text-on-surface', 'text-on-surface-variant');
+                btnEn.classList.remove('font-bold');
+                emailInput.placeholder = emailInput.getAttribute('data-ar-placeholder');
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                btnEn.classList.replace('text-on-surface-variant', 'text-on-surface');
+                btnEn.classList.add('font-bold');
+                btnAr.classList.replace('text-on-surface', 'text-on-surface-variant');
+                btnAr.classList.remove('font-bold');
+                emailInput.placeholder = emailInput.getAttribute('data-en-placeholder');
+            }
+        }
+
+        // Initialize button states
+        document.addEventListener('DOMContentLoaded', () => {
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+            setLanguage(isRtl ? 'ar' : 'en');
+        });
+
+        // Hide TopNavBar on scroll down, show on scroll up
+        let lastScrollY = window.scrollY;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                if (window.scrollY > lastScrollY) {
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    nav.style.transform = 'translateY(0)';
+                }
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+
+
+</body></html>

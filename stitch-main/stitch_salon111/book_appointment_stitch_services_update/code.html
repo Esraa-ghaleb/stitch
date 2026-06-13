@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="light" dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking - Stitch</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Amiri:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tajawal:wght@200;300;400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ebe1d4",
+                    "surface-container-high": "#e8e8e6",
+                    "on-primary-fixed": "#241a0e",
+                    "tertiary-fixed-dim": "#d2c4be",
+                    "on-surface": "#1a1c1b",
+                    "tertiary": "#675c58",
+                    "inverse-surface": "#2f3130",
+                    "on-surface-variant": "#4d453e",
+                    "tertiary-container": "#d4c6c0",
+                    "secondary": "#645d53",
+                    "inverse-primary": "#d7c3b0",
+                    "tertiary-fixed": "#eedfda",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#cfc5b9",
+                    "surface-container": "#eeeeec",
+                    "on-tertiary-container": "#5c524e",
+                    "surface-tint": "#6b5c4c",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#e8ded1",
+                    "background": "#f9f9f7",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#686257",
+                    "surface-container-highest": "#e2e3e1",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#d0c4bb",
+                    "primary": "#6b5c4c",
+                    "on-secondary-fixed": "#1f1b13",
+                    "surface-bright": "#f9f9f7",
+                    "on-tertiary-fixed": "#211a17",
+                    "on-primary-fixed-variant": "#524436",
+                    "surface-dim": "#dadad8",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#7f756d",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#f4dfcb",
+                    "on-background": "#1a1c1b",
+                    "surface-container-low": "#f4f4f2",
+                    "on-tertiary-fixed-variant": "#4e4541",
+                    "primary-fixed-dim": "#d7c3b0",
+                    "surface-variant": "#e2e3e1",
+                    "on-secondary-fixed-variant": "#4c463c",
+                    "on-primary-container": "#605142",
+                    "primary-container": "#d9c5b2",
+                    "inverse-on-surface": "#f1f1ef",
+                    "surface": "#f9f9f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "24px",
+                    "grid-gutter": "24px",
+                    "container-padding": "40px",
+                    "section-gap": "160px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-md": [
+                            "Bodoni Moda"
+                    ],
+                    "display-xl": [
+                            "Bodoni Moda"
+                    ],
+                    "headline-lg-mobile": [
+                            "Bodoni Moda"
+                    ],
+                    "label-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Bodoni Moda"
+                    ],
+                    "arabic-heading": [
+                            "Amiri"
+                    ],
+                    "arabic-body": [
+                            "Tajawal"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-xl": [
+                            "120px",
+                            {
+                                    "lineHeight": "110px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "72px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #d2c4be;
+            border-radius: 20px;
+        }
+        html[dir="rtl"] {
+            font-family: 'Tajawal', sans-serif;
+        }
+        html[dir="rtl"] .font-headline-md,
+        html[dir="rtl"] .font-headline-lg,
+        html[dir="rtl"] .font-headline-lg-mobile,
+        html[dir="rtl"] .font-display-xl {
+            font-family: 'Amiri', serif;
+        }
+        html[dir="rtl"] .font-body-md,
+        html[dir="rtl"] .font-body-lg,
+        html[dir="rtl"] .font-label-sm {
+            font-family: 'Tajawal', sans-serif;
+        }
+        html[dir="rtl"] .material-symbols-outlined {
+            transform: scaleX(-1);
+        }
+        html[dir="rtl"] .tracking-widest {
+            letter-spacing: normal;
+        }
+    </style>
+<script>
+        const translations = {
+            en: {
+                brand: "Stitch",
+                home: "Home",
+                products: "Products",
+                skincare: "Skincare",
+                bodycare: "Bodycare",
+                fragrance: "Fragrance",
+                booking: "Booking",
+                about: "About",
+                contact: "Contact",
+                curate: "Curate Your Ritual",
+                experience: "Experience bespoke treatments tailored to your unique essence.",
+                details: "1. Select Treatment",
+                serviceLabel: "Select Service",
+                serviceOptionDefault: "Choose a treatment...",
+                serviceOption1: "Signature Botanical Facial",
+                serviceOption2: "Deep Tissue Harmony Massage",
+                serviceOption3: "Luminous Radiance Peel",
+                specialistStep: "2. Choose Specialist",
+                specialistOption1Name: "Elena R.",
+                specialistOption1Title: "Lead Esthetician",
+                specialistOption2Name: "Marcus T.",
+                specialistOption2Title: "Massage Therapist",
+                specialistOptionDefaultName: "No Preference",
+                specialistOptionDefaultTitle: "Any Available",
+                moment: "3. Select Date & Time",
+                dateLabel: "Select Date",
+                timeLabel: "Available Times",
+                info: "4. Your Information",
+                nameLabel: "Full Name",
+                namePlaceholder: "Jane Doe",
+                emailLabel: "Email Address",
+                emailPlaceholder: "jane@example.com",
+                phoneLabel: "Phone Number",
+                phonePlaceholder: "+1 (555) 000-0000",
+                notesLabel: "Special Requests or Notes",
+                notesPlaceholder: "Any allergies, preferences, or focus areas...",
+                confirm: "Confirm Appointment",
+                payment: "Payment will be collected after your service.",
+                privacy: "Privacy Policy",
+                terms: "Terms of Service",
+                faq: "FAQ",
+                careers: "Careers",
+                copyright: "© 2024 Stitch. All rights reserved."
+            },
+            ar: {
+                brand: "ستيتش",
+                home: "الرئيسية",
+                products: "المنتجات",
+                skincare: "العناية بالبشرة",
+                bodycare: "العناية بالجسم",
+                fragrance: "العطور",
+                booking: "الحجز",
+                about: "من نحن",
+                contact: "اتصل بنا",
+                curate: "نظم طقوسك",
+                experience: "جرب علاجات مخصصة مصممة لجوهرك الفريد.",
+                details: "١. اختر العلاج",
+                serviceLabel: "اختر الخدمة",
+                serviceOptionDefault: "اختر علاجا...",
+                serviceOption1: "فيشل نباتي مميز",
+                serviceOption2: "مساج تناغم الأنسجة العميقة",
+                serviceOption3: "تقشير الإشراق المضيء",
+                specialistStep: "٢. اختر الأخصائي",
+                specialistOption1Name: "إيلينا ر.",
+                specialistOption1Title: "خبيرة تجميل رئيسية",
+                specialistOption2Name: "ماركوس ت.",
+                specialistOption2Title: "معالج تدليك",
+                specialistOptionDefaultName: "لا يوجد تفضيل",
+                specialistOptionDefaultTitle: "أي متاح",
+                moment: "٣. اختر التاريخ والوقت",
+                dateLabel: "اختر التاريخ",
+                timeLabel: "الأوقات المتاحة",
+                info: "٤. معلوماتك",
+                nameLabel: "الاسم الكامل",
+                namePlaceholder: "فلانة الفلانية",
+                emailLabel: "البريد الإلكتروني",
+                emailPlaceholder: "flana@example.com",
+                phoneLabel: "رقم الهاتف",
+                phonePlaceholder: "+971 50 000 0000",
+                notesLabel: "طلبات خاصة أو ملاحظات",
+                notesPlaceholder: "أي حساسية، تفضيلات، أو مناطق تركيز...",
+                confirm: "تأكيد الموعد",
+                payment: "سيتم تحصيل الدفع بعد الخدمة.",
+                privacy: "سياسة الخصوصية",
+                terms: "شروط الخدمة",
+                faq: "الأسئلة الشائعة",
+                careers: "الوظائف",
+                copyright: "© ٢٠٢٤ ستيتش. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            
+            if (currentLang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                document.getElementById('lang-btn').textContent = 'EN';
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                document.getElementById('lang-btn').textContent = 'AR';
+            }
+            
+            updateContent();
+        }
+
+        function updateContent() {
+            const t = translations[currentLang];
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = t[key];
+                    } else if (el.tagName === 'OPTION') {
+                        el.textContent = t[key];
+                    } else {
+                        // Preserve icon if it exists inside a button
+                        const icon = el.querySelector('.material-symbols-outlined');
+                        if (icon) {
+                            const iconClone = icon.cloneNode(true);
+                            el.textContent = t[key] + ' ';
+                            el.appendChild(iconClone);
+                        } else {
+                            el.textContent = t[key];
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl bg-white/60 dark:bg-black/60 shadow-sm shadow-[0_40px_40px_-10px_rgba(107,92,76,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-surface-bright font-bold tracking-tight" data-i18n="brand">
+                Stitch
+            </div>
+<div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse"><a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="home" href="#">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="about" href="#">About</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" href="#">Our Services</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold border-b-2 border-primary-container pb-1 transition-all duration-300" data-i18n="booking" href="#">Booking</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-300" data-i18n="contact" href="#">Contact</a></div>
+<div class="flex items-center space-x-6 rtl:space-x-reverse text-primary dark:text-primary-fixed-dim">
+<button aria-label="shopping_cart" class="hover:text-primary dark:hover:text-primary-fixed transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="hover:text-primary dark:hover:text-primary-fixed transition-all duration-300 font-label-sm font-bold flex items-center gap-1" id="lang-btn" onclick="toggleLanguage()">
+                    AR
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-gap min-h-screen flex items-center">
+<div class="max-w-[1440px] mx-auto px-4 md:px-container-padding w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-grid-gutter relative">
+<!-- Editorial Image Side (Left) -->
+<div class="hidden lg:block lg:col-span-5 h-[800px] rounded-3xl overflow-hidden sticky top-32">
+<img alt="Editorial Spa Scene" class="w-full h-full object-cover" data-alt="A serene and luxurious spa setting featuring a close-up of smooth, warm-toned stones resting near a delicate sprig of eucalyptus. The lighting is soft, natural, and highly diffused, creating an ethereal and calming atmosphere in a high-key light mode aesthetic. The color palette consists of muted warm neutrals, pristine whites, and soft sage green, perfectly embodying premium minimalism. The composition implies quiet luxury and meticulous care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAACUPEC-T8MOPl8unfonl3xOpTg5yjExDpu8FHqwX1r5CIsnHhkDFXCjMdSyzSYLNvUImLnCMYzRky8yDGGaeJKLVe_E29KCXQAWqcfcvGiIqpUiqawfJZ2fjByhJFxXjfH43WLYtxeuxyynwIZtxWaUqIsrnr81059inuD-IV1qcwA2U6TjgJejBCiNa-6_ZegVABn3b9g4rPjuhRAGbh--kTXfE1kp5--JJxKwW0Ah2uqRYZgpsSIE8rJ71KgV9OPfZuRfda2SqO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+<div class="absolute bottom-10 left-10 right-10 text-on-primary">
+<h1 class="font-headline-lg text-headline-lg mb-4 text-white drop-shadow-md" data-i18n="curate">Curate Your Ritual</h1>
+<p class="font-body-lg text-body-lg text-white/90" data-i18n="experience">Experience bespoke treatments tailored to your unique essence.</p>
+</div>
+</div>
+<!-- Booking Form Side (Right) -->
+<div class="col-span-1 lg:col-span-7 space-y-stack-gap">
+<div class="lg:hidden mb-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile mb-2" data-i18n="curate">Curate Your Ritual</h1>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="experience">Experience bespoke treatments tailored to your unique essence.</p>
+</div>
+<!-- Glassmorphism Form Container -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl rounded-[2rem] p-8 md:p-12 shadow-[0_40px_40px_-10px_rgba(107,92,76,0.05)] border border-outline-variant/30">
+<form class="space-y-12">
+<!-- Section: Service -->
+<div class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant/30 pb-4" data-i18n="details">1. Select Treatment</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative md:col-span-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2" data-i18n="serviceLabel" for="service">Select Service</label>
+<div class="relative">
+<select class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-3 font-body-md text-on-surface appearance-none transition-colors cursor-pointer" id="service" name="service">
+<option data-i18n="serviceOptionDefault" disabled="" selected="" value="">Choose a treatment...</option>
+<option data-i18n="serviceOption1" value="signature_facial">Signature Botanical Facial</option>
+<option data-i18n="serviceOption2" value="deep_tissue">Deep Tissue Harmony Massage</option>
+<option data-i18n="serviceOption3" value="luminous_peel">Luminous Radiance Peel</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 rtl:right-auto rtl:left-0 top-3 text-on-surface-variant pointer-events-none" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Specialist -->
+<div class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant/30 pb-4" data-i18n="specialistStep">2. Choose Specialist</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<label class="cursor-pointer group relative block rounded-2xl overflow-hidden border-2 border-transparent hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary">
+<input class="sr-only" name="specialist_radio" type="radio" value="elena"/>
+<img alt="Elena R." class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuyzVai5CZqEEtAgn19BesjGe374eiOhitoIvF83f9L61D2WDN6c_6NaU9FW71rmzhqcGeflerC5ZUvTAQSMt2kM8KnnM4BN11Q4rmWGuVMUt6RJfXFZk6lLiIXvXeM1-jrciNsg0rhKdLJH6Su-FHUv8CYv92QuldJdPKm2Zwk-Eq0gcKqeGp1zDsxSkf24Oed7rV1JnRLZBmUtiBrPxtxfMZEwNgRoA7_l1kDz_qsHq2Onh2POJzUq45g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4">
+<h3 class="text-white font-body-md font-bold" data-i18n="specialistOption1Name">Elena R.</h3>
+<p class="text-white/80 font-label-sm" data-i18n="specialistOption1Title">Lead Esthetician</p>
+</div>
+</label>
+<!-- Card 2 -->
+<label class="cursor-pointer group relative block rounded-2xl overflow-hidden border-2 border-transparent hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary">
+<input class="sr-only" name="specialist_radio" type="radio" value="marcus"/>
+<img alt="Marcus T." class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuyzVai5CZqEEtAgn19BesjGe374eiOhitoIvF83f9L61D2WDN6c_6NaU9FW71rmzhqcGeflerC5ZUvTAQSMt2kM8KnnM4BN11Q4rmWGuVMUt6RJfXFZk6lLiIXvXeM1-jrciNsg0rhKdLJH6Su-FHUv8CYv92QuldJdPKm2Zwk-Eq0gcKqeGp1zDsxSkf24Oed7rV1JnRLZBmUtiBrPxtxfMZEwNgRoA7_l1kDz_qsHq2Onh2POJzUq45g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4">
+<h3 class="text-white font-body-md font-bold" data-i18n="specialistOption2Name">Marcus T.</h3>
+<p class="text-white/80 font-label-sm" data-i18n="specialistOption2Title">Massage Therapist</p>
+</div>
+</label>
+<!-- Card 3 -->
+<label class="cursor-pointer group relative block rounded-2xl overflow-hidden border-2 border-transparent hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary">
+<input checked="" class="sr-only" name="specialist_radio" type="radio" value="any"/>
+<div class="w-full h-48 bg-surface-container flex items-center justify-center flex-col gap-2">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">group</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-background/90 backdrop-blur-sm">
+<h3 class="text-on-surface font-body-md font-bold" data-i18n="specialistOptionDefaultName">No Preference</h3>
+<p class="text-on-surface-variant font-label-sm" data-i18n="specialistOptionDefaultTitle">Any Available</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Section: Date & Time -->
+<div class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant/30 pb-4" data-i18n="moment">3. Select Date &amp; Time</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2" data-i18n="dateLabel" for="date">Select Date</label>
+<input class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-3 font-body-md text-on-surface transition-colors" id="date" name="date" type="date"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-4" data-i18n="timeLabel">Available Times</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2 rounded-full border border-outline-variant hover:border-primary hover:bg-surface-container text-on-surface-variant font-body-md transition-all" type="button">10:00 AM</button>
+<button class="px-5 py-2 rounded-full border border-primary bg-primary text-on-primary font-body-md shadow-md transition-all" type="button">11:30 AM</button>
+<button class="px-5 py-2 rounded-full border border-outline-variant hover:border-primary hover:bg-surface-container text-on-surface-variant font-body-md transition-all" type="button">2:00 PM</button>
+<button class="px-5 py-2 rounded-full border border-outline-variant hover:border-primary hover:bg-surface-container text-on-surface-variant font-body-md transition-all" type="button">4:15 PM</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Personal Info -->
+<div class="space-y-8">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant/30 pb-4" data-i18n="info">4. Your Information</h2>
+<div class="space-y-6">
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-1" data-i18n="nameLabel" for="name">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-surface-dim rtl:text-right" data-i18n="namePlaceholder" id="name" name="name" placeholder="Jane Doe" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-1" data-i18n="emailLabel" for="email">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-surface-dim rtl:text-right" data-i18n="emailPlaceholder" id="email" name="email" placeholder="jane@example.com" type="email"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-1" data-i18n="phoneLabel" for="phone">Phone Number</label>
+<input class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-surface-dim rtl:text-right" data-i18n="phonePlaceholder" id="phone" name="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-1" data-i18n="notesLabel" for="notes">Special Requests or Notes</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline hover:border-primary focus:border-primary focus:ring-0 py-2 font-body-md text-on-surface transition-colors resize-none placeholder:text-surface-dim rtl:text-right" data-i18n="notesPlaceholder" id="notes" name="notes" placeholder="Any allergies, preferences, or focus areas..." rows="2"></textarea>
+</div>
+</div>
+</div>
+<!-- Submit Action -->
+<div class="pt-6">
+<button class="w-full bg-on-surface hover:bg-primary text-on-primary font-body-md uppercase tracking-widest py-5 rounded-full transition-all duration-300 shadow-lg shadow-on-surface/10 hover:shadow-primary/20 flex items-center justify-center gap-3" data-i18n="confirm" type="submit">
+                                    Confirm Appointment
+                                    <span class="material-symbols-outlined text-sm rtl:rotate-180" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center font-label-sm text-on-surface-variant mt-4 opacity-70" data-i18n="payment">Payment will be collected after your service.</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-on-primary-fixed w-full py-20 px-10 border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap max-w-[1440px] mx-auto items-center">
+<div class="font-headline-md text-headline-md text-on-surface" data-i18n="brand">
+                Stitch
+            </div>
+<div class="flex flex-wrap gap-6 justify-start md:justify-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" data-i18n="privacy" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" data-i18n="terms" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" data-i18n="faq" href="#">FAQ</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" data-i18n="careers" href="#">Careers</a>
+</div>
+<div class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim text-left md:text-right rtl:md:text-left" data-i18n="copyright">
+                © 2024 Stitch. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

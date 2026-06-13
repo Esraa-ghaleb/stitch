@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STITCH - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#d4c6c0",
+                      "on-surface": "#1a1c1b",
+                      "on-tertiary-container": "#5c524e",
+                      "on-secondary-container": "#686257",
+                      "tertiary-fixed": "#eedfda",
+                      "on-secondary-fixed-variant": "#4c463c",
+                      "inverse-surface": "#2f3130",
+                      "on-tertiary-fixed": "#211a17",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e2e3e1",
+                      "primary-fixed-dim": "#d7c3b0",
+                      "surface-container-high": "#e8e8e6",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dadad8",
+                      "surface-bright": "#f9f9f7",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#eeeeec",
+                      "surface": "#f9f9f7",
+                      "secondary-fixed-dim": "#cfc5b9",
+                      "tertiary": "#675c58",
+                      "on-primary-fixed": "#241a0e",
+                      "secondary": "#645d53",
+                      "primary-fixed": "#f4dfcb",
+                      "background": "#f9f9f7",
+                      "secondary-fixed": "#ebe1d4",
+                      "primary-container": "#d9c5b2",
+                      "surface-container-low": "#f4f4f2",
+                      "on-primary-fixed-variant": "#524436",
+                      "inverse-on-surface": "#f1f1ef",
+                      "error": "#ba1a1a",
+                      "outline": "#7f756d",
+                      "on-surface-variant": "#4d453e",
+                      "outline-variant": "#d0c4bb",
+                      "on-primary-container": "#605142",
+                      "secondary-container": "#e8ded1",
+                      "on-tertiary-fixed-variant": "#4e4541",
+                      "inverse-primary": "#d7c3b0",
+                      "primary": "#6b5c4c",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "surface-variant": "#e2e3e1",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#1f1b13",
+                      "surface-tint": "#6b5c4c",
+                      "tertiary-fixed-dim": "#d2c4be"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-gap": "24px",
+                      "section-gap": "160px",
+                      "grid-gutter": "24px",
+                      "container-padding": "40px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Bodoni Moda"],
+                      "body-md": ["Hanken Grotesk"],
+                      "display-xl": ["Bodoni Moda"],
+                      "headline-lg-mobile": ["Bodoni Moda"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "headline-lg": ["Bodoni Moda"],
+                      "cairo": ["Cairo", "sans-serif"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                      "headline-lg-mobile": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                      "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .input-underline {
+            border: none;
+            border-bottom: 1px solid theme('colors.outline-variant');
+            background: transparent;
+            padding: 12px 0;
+            transition: border-color 0.3s ease;
+        }
+        .input-underline:focus {
+            outline: none;
+            border-bottom-color: theme('colors.primary');
+            box-shadow: none;
+        }
+        .label-float {
+            position: relative;
+            top: 24px;
+            inset-inline-start: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: theme('colors.on-surface-variant');
+        }
+        .input-underline:focus + .label-float,
+        .input-underline:not(:placeholder-shown) + .label-float {
+            top: 0;
+            font-size: 10px;
+            color: theme('colors.primary');
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(208, 196, 187, 0.3);
+        }
+        .soft-shadow {
+            box-shadow: 0 40px 40px -10px rgba(107, 92, 76, 0.05);
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+
+        html[dir="rtl"] {
+            font-family: 'Cairo', sans-serif;
+        }
+        html[dir="rtl"] .font-headline-lg, html[dir="rtl"] .font-headline-md, html[dir="rtl"] .font-display-xl {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col transition-all duration-300">
+<!-- TopNavBar -->
+<header class="w-full py-8 px-container-padding flex justify-between items-center absolute top-0 z-50">
+<nav class="flex items-center gap-6 flex-1">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors" data-ar="الرئيسية" data-en="Home" href="/">Home</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors" data-ar="من نحن" data-en="About" href="#">About</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors" data-ar="خدماتنا" data-en="Our Services" href="#">Our Services</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors" data-ar="الحجز" data-en="Booking" href="#">Booking</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors" data-ar="اتصل بنا" data-en="Contact" href="#">Contact</a>
+</nav>
+<div class="font-display-xl text-headline-md tracking-tighter text-on-surface flex-shrink-0 uppercase" data-ar="ستيتش" data-en="STITCH">STITCH</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<button class="font-label-sm text-label-sm uppercase hover:text-primary transition-colors text-on-surface" id="btn-en" onclick="setLang('en')">EN</button>
+<span class="text-outline-variant">|</span>
+<button class="font-label-sm text-label-sm uppercase hover:text-primary transition-colors text-on-surface-variant" id="btn-ar" onclick="setLang('ar')">AR</button>
+</div>
+</header>
+<!-- Main Content: Checkout -->
+<main class="flex-grow pt-32 pb-section-gap px-container-padding max-w-[1440px] mx-auto w-full">
+<div class="mb-16">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4" data-ar="حجز آمن وعربون" data-en="Secure Appointment &amp; Deposit">Secure Appointment &amp; Deposit</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl" data-ar="أكمل تفاصيل حجزك لتأمين موعدك لخدماتنا الفاخرة." data-en="Complete your booking details to secure your appointment for our luxury services.">Complete your booking details to secure your appointment for our luxury services.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-grid-gutter xl:gap-[80px]">
+<!-- Left Column: Forms -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-16">
+<!-- Section: Customer Info -->
+<section>
+<div class="flex items-center gap-3 mb-8">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-[10px]">1</span>
+<h2 class="font-headline-md text-[24px] leading-[32px] text-on-surface" data-ar="معلومات العميل" data-en="Customer Information">Customer Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-grid-gutter gap-y-6">
+<div class="relative flex flex-col-reverse group">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="firstName" placeholder=" " required="" type="text"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="الاسم الأول" data-en="First Name" for="firstName">First Name</label>
+</div>
+<div class="relative flex flex-col-reverse group">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="lastName" placeholder=" " required="" type="text"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="الاسم الأخير" data-en="Last Name" for="lastName">Last Name</label>
+</div>
+<div class="relative flex flex-col-reverse group md:col-span-2">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="email" placeholder=" " required="" type="email"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="البريد الإلكتروني" data-en="Email Address" for="email">Email Address</label>
+</div>
+<div class="relative flex flex-col-reverse group md:col-span-2">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="phone" placeholder=" " type="tel"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="رقم الهاتف (اختياري)" data-en="Phone Number (Optional)" for="phone">Phone Number (Optional)</label>
+</div>
+<div class="relative flex flex-col-reverse group md:col-span-2 mt-4">
+<textarea class="input-underline font-body-md text-body-md text-on-surface w-full resize-none" id="healthNotes" placeholder=" " rows="3"></textarea>
+<label class="label-float font-label-sm text-label-sm" data-ar="ملاحظات صحية والجلد" data-en="Health &amp; Skin Notes" for="healthNotes">Health &amp; Skin Notes</label>
+</div>
+</div>
+</section>
+<hr class="border-t border-outline-variant/30"/>
+<!-- Section: Payment Method -->
+<section>
+<div class="flex items-center gap-3 mb-8">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-[10px]">2</span>
+<h2 class="font-headline-md text-[24px] leading-[32px] text-on-surface" data-ar="طريقة الدفع" data-en="Payment Method">Payment Method</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Credit Card Option -->
+<label class="relative flex items-start gap-4 p-6 glass-card rounded-xl cursor-pointer group hover:border-primary/50 transition-colors duration-300">
+<input checked="" class="mt-1 w-5 h-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-background bg-transparent" name="payment" type="radio" value="card"/>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="بطاقة ائتمان / خصم" data-en="Credit / Debit Card">Credit / Debit Card</span>
+<div class="flex gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">credit_card</span>
+</div>
+</div>
+<!-- Card Input Fields (Hidden by default, shown via JS if needed, but keeping visual here for demonstration) -->
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="relative flex flex-col-reverse group col-span-2">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="cardNumber" placeholder=" " type="text"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="رقم البطاقة" data-en="Card Number" for="cardNumber">Card Number</label>
+</div>
+<div class="relative flex flex-col-reverse group">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="expiry" placeholder=" " type="text"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="شهر / سنة" data-en="MM / YY" for="expiry">MM / YY</label>
+</div>
+<div class="relative flex flex-col-reverse group">
+<input class="input-underline font-body-md text-body-md text-on-surface w-full" id="cvc" placeholder=" " type="text"/>
+<label class="label-float font-label-sm text-label-sm" data-ar="رمز الأمان" data-en="CVC" for="cvc">CVC</label>
+</div>
+</div>
+</div>
+</label>
+<!-- Apple Pay Option -->
+<label class="relative flex items-center gap-4 p-6 glass-card rounded-xl cursor-pointer group hover:border-primary/50 transition-colors duration-300">
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-background bg-transparent" name="payment" type="radio" value="applepay"/>
+<div class="flex-grow flex justify-between items-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="آبل باي" data-en="Apple Pay">Apple Pay</span>
+<span class="material-symbols-outlined text-[24px] text-on-surface">phone_iphone</span>
+</div>
+</label>
+<!-- Google Pay Option -->
+<label class="relative flex items-center gap-4 p-6 glass-card rounded-xl cursor-pointer group hover:border-primary/50 transition-colors duration-300">
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-background bg-transparent" name="payment" type="radio" value="googlepay"/>
+<div class="flex-grow flex justify-between items-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="جوجل باي" data-en="Google Pay">Google Pay</span>
+<span class="material-symbols-outlined text-[24px] text-on-surface">contactless</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-5 xl:col-span-4 relative mt-16 lg:mt-0">
+<div class="sticky top-10 glass-card soft-shadow rounded-2xl p-8 lg:p-10 flex flex-col gap-8">
+<h3 class="font-headline-md text-[24px] leading-[32px] text-on-surface border-b border-outline-variant/30 pb-4" data-ar="ملخص الحجز" data-en="Booking Summary">Booking Summary</h3>
+<!-- Items List -->
+<div class="flex flex-col gap-6">
+<!-- Item 1 -->
+<div class="flex gap-4 items-center">
+<div class="w-20 h-24 bg-surface-variant rounded-md overflow-hidden flex-shrink-0 relative">
+<img alt="Luxury face serum bottle in minimal setting" class="w-full h-full object-cover mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnOWAfdrl7iNxgKJ8yK4VoIg_Gbp0bXRD0ZivpIRKH4GlPvBpJbCvW6W9ktZb4bTGSxVK8U_W2hruA7sWAaQdRPI2nrV9qqE7CSrUYx4gVu2wN2irXh4J6FCqheKaMg_f-cKjXmpqEjXvI62ESjAMxjBeUDU0x9pRvzX_P4MgINQIhH45JnoED7Iv8Libf-13FokJXFAnFn_pAPMXmpYVottjixEg5MARGxiRTi56f36HnDf5w2a1cJnbPt0MWKgO3fhbNlJAwB0Lj"/>
+<div class="absolute top-0 end-0 bg-primary text-on-primary w-5 h-5 flex items-center justify-center font-label-sm text-[10px] m-1 rounded-full">1</div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-1" data-ar="سيروم الإشراق" data-en="Radiance Serum">Radiance Serum</span>
+<span class="font-body-md text-[14px] text-on-surface-variant mb-2" data-ar="50 مل / رائحة مميزة" data-en="50ml / Signature Scent">50ml / Signature Scent</span>
+<span class="font-body-md text-body-md text-on-surface">$185.00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-center">
+<div class="w-20 h-24 bg-surface-variant rounded-md overflow-hidden flex-shrink-0 relative">
+<img alt="Minimalist perfume bottle" class="w-full h-full object-cover mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrl2pj1LIRRIbVo12r4HjJ68SmXs3iB1rNOOPpmbS6zCA6p7G-qCOfHW-kp7cjateqNBV44wOjWfDNlp8P-do61xc_w4Rc2DfMpgbOsi8UerBibq30C7JPAagT6M6kdDefSnySC8SpmEPSqY9Py_vaYw7pLJj9i3Zve9gjVn4HzCSIMYSeWkc-qjtliVSpUF3s04QZqvK3BIo4E3GRBQE2IOKjHdupwOyXXFGU1M4qvQsREk27HCpTmwdxbLl_DussN07T7pkT7HeY"/>
+<div class="absolute top-0 end-0 bg-primary text-on-primary w-5 h-5 flex items-center justify-center font-label-sm text-[10px] m-1 rounded-full">1</div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-1" data-ar="عطر لِيسانس" data-en="L'Essence Parfum">L'Essence Parfum</span>
+<span class="font-body-md text-[14px] text-on-surface-variant mb-2" data-ar="100 مل / نوتات زهرية" data-en="100ml / Floral Notes">100ml / Floral Notes</span>
+<span class="font-body-md text-body-md text-on-surface">$240.00</span>
+</div>
+</div>
+</div>
+<hr class="border-t border-outline-variant/30"/>
+<!-- Totals -->
+<div class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant">
+<div class="flex justify-between">
+<span data-ar="المجموع الفرعي" data-en="Subtotal">Subtotal</span>
+<span class="text-on-surface">$425.00</span>
+</div>
+<div class="flex justify-between">
+<span><span data-ar="الشحن" data-en="Shipping">Shipping</span> <span class="text-[12px] mx-1" data-ar="(بريد سريع)" data-en="(Express Courier)">(Express Courier)</span></span>
+<span class="text-on-surface">$25.00</span>
+</div>
+<div class="flex justify-between">
+<span data-ar="الضرائب" data-en="Taxes">Taxes</span>
+<span class="text-on-surface" data-ar="يتم حسابها في الخطوة التالية" data-en="Calculated next step">Calculated next step</span>
+</div>
+</div>
+<hr class="border-t border-outline-variant/60"/>
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface" data-ar="الإجمالي" data-en="Total">Total</span>
+<span class="font-headline-md text-[32px] text-on-surface">$450.00</span>
+</div>
+<!-- CTA -->
+<button class="w-full bg-on-surface text-on-primary font-body-md text-body-md py-4 px-6 rounded-full hover:bg-primary transition-colors duration-300 mt-4 flex justify-center items-center gap-2 group" type="button"><span data-ar="تأكيد الحجز والعربون" data-en="Confirm Booking &amp; Deposit">Confirm Booking &amp; Deposit</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform duration-300">calendar_today</span></button>
+<p class="text-center font-body-md text-[12px] text-on-surface-variant mt-2">
+<span data-ar="بإتمام هذا الطلب، أنت توافق على" data-en="By completing this order, you agree to our">By completing this order, you agree to our</span> <a class="underline hover:text-primary transition-colors" data-ar="شروط الخدمة" data-en="Terms of Service" href="#">Terms of Service</a>.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant/30 bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed-dim mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter px-container-padding max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-4 mb-8">
+<div class="font-display-xl text-headline-lg text-primary uppercase" data-ar="ستيتش" data-en="STITCH">STITCH</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface font-bold mb-2" data-ar="التسوق" data-en="Shop">Shop</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="العناية بالوجه" data-en="Face Care" href="#">Face Care</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="العناية بالشعر" data-en="Hair Care" href="#">Hair Care</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="العناية بالجسم" data-en="Body Care" href="#">Body Care</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="الإكسسوارات" data-en="Accessories" href="#">Accessories</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface font-bold mb-2" data-ar="تواصل اجتماعي" data-en="Social">Social</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="انستغرام" data-en="Instagram" href="#">Instagram</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="فيسبوك" data-en="Facebook" href="#">Facebook</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="تيك توك" data-en="Tiktok" href="#">Tiktok</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface font-bold mb-2" data-ar="اتصل بنا" data-en="Contact">Contact</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:translate-x-1 rtl:hover:-translate-x-1 transition-transform duration-300 hover:text-primary" data-ar="واتساب" data-en="WhatsApp" href="#">WhatsApp</a>
+</div>
+<div class="col-span-1 md:col-span-4 mt-16 pt-8 border-t border-outline-variant/30 flex justify-between items-center text-on-surface-variant font-label-sm text-[10px] tracking-widest">
+<span data-ar="© 2024 ستيتش. جميع الحقوق محفوظة." data-en="© 2024 STITCH. ALL RIGHTS RESERVED.">© 2024 STITCH. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span data-ar="دفع آمن" data-en="SECURE CHECKOUT">SECURE CHECKOUT</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.input-underline');
+            inputs.forEach(input => {
+                if(input.value) {
+                    input.classList.add('has-val'); 
+                }
+            });
+        });
+
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            const btnEn = document.getElementById('btn-en');
+            const btnAr = document.getElementById('btn-ar');
+
+            if (lang === 'ar') {
+                btnAr.classList.replace('text-on-surface-variant', 'text-on-surface');
+                btnEn.classList.replace('text-on-surface', 'text-on-surface-variant');
+            } else {
+                btnEn.classList.replace('text-on-surface-variant', 'text-on-surface');
+                btnAr.classList.replace('text-on-surface', 'text-on-surface-variant');
+            }
+            
+            document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                // If it contains child elements (like the Products button with the arrow), we need to be careful
+                // but in this implementation we mainly placed them on text nodes or simple elements.
+                // Let's just replace first text node if it has children, or textContent if empty
+                let translatedText = el.getAttribute(`data-${lang}`);
+                
+                // Hack for buttons with icons
+                let hasIcon = el.querySelector('.material-symbols-outlined');
+                if (hasIcon) {
+                    el.childNodes.forEach(node => {
+                        if(node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+                            node.nodeValue = translatedText + ' ';
+                        }
+                    });
+                } else {
+                    el.textContent = translatedText;
+                }
+            });
+        }
+    </script>
+</body></html>
